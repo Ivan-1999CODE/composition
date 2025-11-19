@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學測英文作文指南</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 應用字體 */
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+        }
+        /* 提升段落的可讀性 */
+        p {
+            line-height: 1.8;
+        }
+        /* 列表樣式 */
+        ul {
+            list-style-position: inside;
+        }
+        /* 表格樣式優化 */
+        th, td {
+            @apply p-3 text-left;
+        }
+        th {
+            @apply bg-gray-100;
+        }
+        tr:nth-child(even) {
+            @apply bg-gray-50;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto max-w-5xl px-4 py-8 md:py-16">
+
+        <!-- 網頁標題 -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">學測英文作文指南</h1>
+            <p class="text-xl md:text-2xl text-indigo-600 mt-2">A Guide to GSAT English Composition</p>
+        </header>
+
+        <main>
+            <!-- 寫作技巧速覽 -->
+            <section class="mb-8 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg shadow">
+                <h2 class="text-xl font-bold text-yellow-800 mb-4">寫作技巧速覽</h2>
+                <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">第一段：描述</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong class="font-medium">開頭：</strong>簡介圖片 A (+B) 內容。</li>
+                            <li><strong class="font-medium">中間：</strong>描述 A/B 特色並解釋。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">第二段：申論</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong class="font-medium">開頭：</strong>提出 1-2 個主要論點。</li>
+                            <li><strong class="font-medium">中間：</strong>分別解釋論點 (Reason A/B + Explain A/B)。</li>
+                            <li><strong class="font-medium">結尾：</strong>用約 1 句話總結。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 作文技巧與範文分頁區塊 -->
+            <section id="writing-guide" class="bg-white p-6 md:p-10 rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+                <!-- 分頁標籤 -->
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-6 overflow-x-auto" aria-label="Tabs">
+                        <button class="tab-btn active text-indigo-600 border-indigo-500 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg" data-tab="structure">
+                            寫作結構
+                        </button>
+                        <button class="tab-btn text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg" data-tab="transitions">
+                            轉折詞用法
+                        </button>
+                        <button class="tab-btn text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg" data-tab="essay-115">
+                            115年模擬考
+                        </button>
+                        <button class="tab-btn text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg" data-tab="essay-113">
+                            113年學測
+                        </button>
+                         <button class="tab-btn text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg" data-tab="essay-111">
+                            111年學測
+                        </button>
+                        <button class="tab-btn text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg" data-tab="essay-advanced">
+                            111進階版
+                        </button>
+                        <button class="tab-btn text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg" data-tab="essay-115-predict">
+                            115預測題目
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- 分頁內容 -->
+                <div class="mt-8">
+                    <!-- 寫作結構內容 (預設顯示) -->
+                    <div id="structure" class="tab-content">
+                        <h2 class="text-2xl font-bold mb-4 text-indigo-700 border-l-4 border-indigo-500 pl-4">學測英文作文高分結構</h2>
+                         <p class="text-gray-600 mb-6">此題型分為 Part 1 (客觀描述) 與 Part 2 (申論觀點)，對應作文的第一段與第二段。</p>
+                        <div class="space-y-8 text-gray-700">
+                           <div>
+                                <h3 class="text-xl font-bold mb-3 text-indigo-600">第一段：客觀描述與分析</h3>
+                                <p class="mb-4"><strong class="font-semibold text-gray-800">目標：</strong> 客觀描述圖片、圖表內容，或比較兩者異同。</p>
+                                <ul class="space-y-3 list-disc pl-4">
+                                    <li><strong class="font-semibold">開頭：</strong><br>直接總述圖片內容。<br><em class="text-gray-500">範例：The pictures clearly illustrate two different lifestyles...</em></li>
+                                    <li><strong class="font-semibold">中間：</strong><br>描述圖A與圖B的關鍵特徵，並使用轉折詞（如 However）進行對比。</li>
+                                    <li><strong class="font-semibold">結尾 (可選)：</strong><br>一句話總結核心差異，為第二段鋪墊。<br><em class="text-gray-500">範例：Obviously, these two images represent a strong contrast between...</em></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-indigo-600">第二段：申論觀點與闡述</h3>
+                                <p class="mb-4"><strong class="font-semibold text-gray-800">目標：</strong> 提出自己的看法、偏好、原因或建議。</p>
+                                <ul class="space-y-3 list-disc pl-4">
+                                     <li><strong class="font-semibold">開頭：</strong><br>旗幟鮮明地表達主要論點。<br><em class="text-gray-500">範例：In my opinion, I would prefer the lifestyle shown in Picture A for several reasons.</em></li>
+                                     <li><strong class="font-semibold">中間：</strong><br>分點論述，提出具體理由與解釋。<br>
+                                        <ul class="list-[circle] pl-6 mt-2 space-y-2">
+                                            <li><strong class="font-semibold">論點一:</strong> <em class="text-gray-500">First...</em> (陳述理由) <em class="text-gray-500">For example...</em> (解釋或舉例)</li>
+                                            <li><strong class="font-semibold">論點二:</strong> <em class="text-gray-500">Second...</em> (陳述理由) <em class="text-gray-500">Specifically...</em> (解釋或舉例)</li>
+                                        </ul>
+                                    </li>
+                                     <li><strong class="font-semibold">結尾：</strong><br>用1-2句話重申論點，強力收尾。<br><em class="text-gray-500">範例：In conclusion, + [重述的論點]</em></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 轉折詞用法內容 (預設隱藏) -->
+                    <div id="transitions" class="tab-content hidden">
+                        <h2 class="text-2xl font-bold mb-6 text-emerald-700 border-l-4 border-emerald-500 pl-4">高分轉折詞用法：從常用到精通</h2>
+                        <div class="overflow-x-auto">
+                           <table class="w-full text-sm md:text-base border border-gray-200">
+                                <thead class="bg-gray-100 text-gray-800">
+                                    <tr>
+                                        <th class="p-3 font-semibold">功能</th>
+                                        <th class="p-3 font-semibold">一般用法 (4–5級分)</th>
+                                        <th class="p-3 font-semibold">高分替代用法 (5–6級分)</th>
+                                        <th class="p-3 font-semibold">範例句</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">1️⃣ 對比</td><td class="p-3">However, In contrast</td><td class="p-3">Whereas, While, Unlike, On the other hand, By comparison</td><td class="p-3">While some people enjoy outdoor activities, others prefer staying indoors.</td></tr>
+                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">2️⃣ 列點</td><td class="p-3">First, Second, Finally</td><td class="p-3">To begin with, Moreover, What’s more, In addition...</td><td class="p-3">To begin with, doing exercise regularly helps us stay fit.</td></tr>
+                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">3️⃣ 補充</td><td class="p-3">Moreover, Also</td><td class="p-3">Not only that, Besides, Apart from that, What’s more</td><td class="p-3">Not only that, it also helps improve our mental health.</td></tr>
+                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">4️⃣ 結論</td><td class="p-3">In conclusion</td><td class="p-3">To sum up, All in all, All things considered, Overall...</td><td class="p-3">All things considered, I believe an active lifestyle benefits us most.</td></tr>
+                                     <tr class="border-b"><td class="p-3 font-bold text-emerald-800">5️⃣ 表達觀點</td><td class="p-3">I think, I believe</td><td class="p-3">Personally, I find that..., From my perspective...</td><td class="p-3">From my perspective, spending time outdoors is a better way to relax.</td></tr>
+                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">6️⃣ 因果關係</td><td class="p-3">Because, So</td><td class="p-3">As a result, Consequently, Thus, That’s why, Due to...</td><td class="p-3">As a result, people who exercise regularly tend to be happier.</td></tr>
+                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">7️⃣ 舉例說明</td><td class="p-3">For example</td><td class="p-3">Such as, To illustrate, A case in point is...</td><td class="p-3">To illustrate, many students release stress by going hiking on weekends.</td></tr>
+                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">8️⃣ 轉折強調</td><td class="p-3">But, Still</td><td class="p-3">Nevertheless, Nonetheless, Indeed, In fact, Actually</td><td class="p-3">Indeed, technology has changed our lives in many ways.</td></tr>
+                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">9️⃣ 條件假設</td><td class="p-3">If, Although</td><td class="p-3">Even if, Even though, Provided that, As long as...</td><td class="p-3">Even though it takes time, exercising is worth the effort.</td></tr>
+                                    <tr><td class="p-3 font-bold text-emerald-800">🔟 結果與目的</td><td class="p-3">So that, To, For</td><td class="p-3">In order to, So as to, For the purpose of...</td><td class="p-3">People work hard in order to live a comfortable life.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- 115年模擬考內容 -->
+                    <div id="essay-115" class="tab-content hidden">
+                        <article class="space-y-8">
+                            <h2 class="text-2xl font-bold mb-4 text-teal-700 border-l-4 border-teal-500 pl-4">✏️ 學測英文作文範文：中英對照版</h2>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                 <p class="font-semibold text-gray-800">主題：Hunger Marketing vs. Discount Promotion</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-teal-600">第一段（說明兩種手法）</h3>
+                                <div class="space-y-6">
+                                    <div><p class="text-gray-600">In modern society, many businesses use various strategies to attract consumers and boost sales.</p><p class="text-gray-800 font-medium mt-1">在現代社會，許多企業運用各種策略來吸引消費者並提升銷售量。</p></div>
+                                    <div><p class="text-gray-600">Two of the most common methods are hunger marketing and discount promotion.</p><p class="text-gray-800 font-medium mt-1">其中最常見的兩種方式是「飢餓行銷」與「打折促銷」。</p></div>
+                                    <div><p class="text-gray-600">Hunger marketing creates a sense of scarcity by limiting the number of products or setting a short selling period, which makes customers feel the need to buy quickly before the product runs out.</p><p class="text-gray-800 font-medium mt-1">飢餓行銷透過限制商品數量或銷售時間，製造「稀有感」，讓消費者覺得必須趕快購買，以免錯過機會。</p></div>
+                                    <div><p class="text-gray-600">In contrast, discount promotion lowers prices directly to encourage people to purchase more.</p><p class="text-gray-800 font-medium mt-1">相較之下，打折促銷則是直接降低價格，鼓勵人們多買一些商品。</p></div>
+                                    <div><p class="text-gray-600">Both of these strategies aim to increase sales, but they work in different psychological ways.</p><p class="text-gray-800 font-medium mt-1">這兩種策略的目的都是提升銷售量，但它們運用的心理機制不同。</p></div>
+                                    <div><p class="text-gray-600">However, which one is more effective depends on consumers’ habits and experiences.</p><p class="text-gray-800 font-medium mt-1">然而，哪一種更有效，往往取決於消費者的習慣與經驗。</p></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-teal-600">第二段（分析與個人觀點）</h3>
+                                <div class="space-y-6">
+                                    <div><p class="text-gray-600">In my opinion, discount promotion is more effective in encouraging people to spend money.</p><p class="text-gray-800 font-medium mt-1">在我看來，「打折促銷」更能有效地促使人們花錢購買。</p></div>
+                                    <div><p class="text-gray-600">First, people can clearly see how much they save, and that feeling of “getting a good deal” often motivates them to buy things they didn’t plan to.</p><p class="text-gray-800 font-medium mt-1">首先，消費者能清楚看到自己省了多少錢，而「撿到便宜」的感覺常常會讓人買下原本沒有打算購買的東西。</p></div>
+                                    <div><p class="text-gray-600">For example, I once bought a pair of shoes just because it was 50% off, even though I didn’t really need it.</p><p class="text-gray-800 font-medium mt-1">例如，我曾經因為鞋子打五折而買下一雙，其實我並不真的需要它。</p></div>
+                                    <div><p class="text-gray-600">Second, discounts can attract a wider range of customers, including those who are price-sensitive or not brand-loyal.</p><p class="text-gray-800 font-medium mt-1">其次，折扣活動能吸引更多不同類型的顧客，包括對價格敏感或對品牌不特別忠誠的人。</p></div>
+                                    <div><p class="text-gray-600">While hunger marketing mainly appeals to fans of popular brands, discount promotion can easily increase sales volume in a short time.</p><p class="text-gray-800 font-medium mt-1">飢餓行銷主要吸引的是品牌愛好者，而打折促銷則能在短時間內迅速提升銷售量。</p></div>
+                                    <div><p class="text-gray-600">To sum up, discount promotion is a more practical and direct way to make consumers spend more without much hesitation.</p><p class="text-gray-800 font-medium mt-1">總而言之，打折促銷是一種更實際、也更直接的方法，能讓消費者毫不猶豫地掏出錢購買商品。</p></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- 113年學測內容 -->
+                    <div id="essay-113" class="tab-content hidden">
+                        <article class="space-y-8">
+                            <h2 class="text-2xl font-bold mb-4 text-rose-700 border-l-4 border-rose-500 pl-4">範文：113年學測</h2>
+                            <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                                 <p class="font-semibold text-gray-800">🧩 題目主題：青少年問題與機器人幫手</p>
+                                 <p class="text-gray-600"><strong>第一段：</strong>選定其中一個圖中的事情是你最想解決的。</p>
+                                 <p class="text-gray-600"><strong>第二段：</strong>說明你想要的「機器人幫手」要具備哪些特質或功能。</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-sky-600">第一段：選定問題 + 原因說明</h3>
+                                <div class="space-y-6">
+                                    <div><p class="text-gray-600">Among the three problems, I would like to solve mood swings.</p><p class="text-gray-800 font-medium mt-1">在這三個問題中，我想解決的是情緒起伏。</p></div>
+                                    <div><p class="text-gray-600">Many teenagers, including me, sometimes feel angry or sad for no clear reason.</p><p class="text-gray-800 font-medium mt-1">許多青少年，包括我自己，有時會莫名地感到生氣或難過。</p></div>
+                                    <div><p class="text-gray-600">This emotional change makes it hard to focus on schoolwork or get along with others.</p><p class="text-gray-800 font-medium mt-1">這種情緒變化讓人難以專心讀書或與他人相處。</p></div>
+                                    <div><p class="text-gray-600">I believe it happens because we face too much pressure from studies and relationships.</p><p class="text-gray-800 font-medium mt-1">我認為這是為我們面臨過多來自課業和人際關係的壓力。</p></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-pink-600">第二段：機器人特質 + 協助方式</h3>
+                                <div class="space-y-6">
+                                    <div><p class="text-gray-600">If I had a robot helper, I would like it to help me control my emotions.</p><p class="text-gray-800 font-medium mt-1">如果我有一個機器人幫手，我希望它能幫助我控制情緒。</p></div>
+                                    <div><p class="text-gray-600">First, the robot could detect my mood through my voice and facial expression.</p><p class="text-gray-800 font-medium mt-1">首先，這個機器人可以透過我的聲音和表情偵測我的情緒。</p></div>
+                                    <div><p class="text-gray-600">When it notices I am upset, it could comfort me with calm words or play my favorite music.</p><p class="text-gray-800 font-medium mt-1">當它發現我心情不好時，可以用平靜的話語安撫我，或播放我喜歡的音樂。</p></div>
+                                    <div><p class="text-gray-600">Second, it could remind me to take deep breaths or go outside for a walk.</p><p class="text-gray-800 font-medium mt-1">其次，它可以提醒我深呼吸或外出散步。</p></div>
+                                    <div><p class="text-gray-600">With its help, I could learn to manage stress and stay positive even when I face difficulties.</p><p class="text-gray-800 font-medium mt-1">有了它的幫助，我能學會管理壓力，並在面對困難時保持正向的心態。</p></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                     <!-- 111年學測內容 -->
+                    <div id="essay-111" class="tab-content hidden">
+                        <article class="space-y-8">
+                            <h2 class="text-2xl font-bold mb-4 text-cyan-700 border-l-4 border-cyan-500 pl-4">範文：111年學測</h2>
+                             <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                                 <p class="font-semibold text-gray-800">🧩 題目主題：不同的公園特色與理想公園</p>
+                                 <p class="text-gray-600">主題翻譯： 不同的公園有不同的特色與風格，請描述並說明你理想中的公園。</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-cyan-600">第一段 / Paragraph 1 — Description</h3>
+                                <div class="space-y-6">
+                                    <div><p class="text-gray-600">Both pictures show different kinds of parks, but they have very different features.</p><p class="text-gray-800 font-medium mt-1">兩張圖片都呈現了不同類型的公園，但它們有著截然不同的特色。</p></div>
+                                    <div><p class="text-gray-600">In Picture A, there is a colorful playground with slides and climbing frames. Many children might enjoy playing there.</p><p class="text-gray-800 font-medium mt-1">在圖片 A 中，有一座色彩繽紛的遊樂場，裡面有溜滑梯和攀爬架，許多小朋友可能會喜歡在那裡玩耍。</p></div>
+                                    <div><p class="text-gray-600">In Picture B, the park looks more natural with many tall trees and a large green lawn. It seems quiet and peaceful.</p><p class="text-gray-800 font-medium mt-1">在圖片 B 中，公園看起來更自然，滿是高大的樹木和一片寬闊的綠地，整體感覺寧靜而祥和。</p></div>
+                                    <div><p class="text-gray-600">While Picture A is lively and full of facilities, Picture B gives people a sense of calmness and nature.</p><p class="text-gray-800 font-medium mt-1">圖片 A 熱鬧且設施豐富，而圖片 B 則帶給人一種平靜與親近自然的感覺。</p></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-cyan-600">第二段 / Paragraph 2 — Opinion and Explanation</h3>
+                                <div class="space-y-6">
+                                    <div><p class="text-gray-600">In my opinion, my ideal park would be more like the one in Picture B.</p><p class="text-gray-800 font-medium mt-1">在我看來，我理想中的公園會更像圖片 B 這樣的類型。</p></div>
+                                    <div><p class="text-gray-600">First, I prefer a natural environment because it helps me relax and forget stress. Walking under the trees and hearing birds sing make me feel peaceful.</p><p class="text-gray-800 font-medium mt-1">首先，我喜歡自然的環境，因為它能幫助我放鬆並忘記壓力。走在樹蔭下、聽著鳥鳴，會讓我感到非常平靜。</p></div>
+                                    <div><p class="text-gray-600">Second, a park with open space allows families and friends to have picnics or exercise together, which makes people healthier and closer.</p><p class="text-gray-800 font-medium mt-1">其次，一個有寬廣空間的公園能讓家人或朋友一起野餐、運動，這不僅能促進健康，也能讓彼此關係更親近。</p></div>
+                                    <div><p class="text-gray-600">To sum up, a quiet and green park is my favorite because it brings both physical and mental comfort.</p><p class="text-gray-800 font-medium mt-1">總而言之，我最喜歡的公園是寧靜且充滿綠意的，因為它能帶來身心的放鬆與舒適。</p></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- 進階版內容 -->
+                    <div id="essay-advanced" class="tab-content hidden">
+                        <article class="space-y-8">
+                            <h2 class="text-2xl font-bold mb-4 text-purple-700 border-l-4 border-purple-500 pl-4">🌿 高分改寫版作文：Different Types of Parks and My Ideal One</h2>
+                             <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                                 <p class="font-semibold text-gray-800">題目翻譯： 不同類型的公園與我理想中的公園</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-blue-600">🟦 Paragraph 1 – Description（描述段）</h3>
+                                <div class="space-y-6">
+                                    <div>
+                                        <p class="text-gray-600">As the pictures illustrate, both parks have distinct characteristics.</p>
+                                        <p class="text-gray-800 font-medium mt-1">如圖片所示，這兩座公園各自擁有不同的特色。</p>
+                                        <p class="text-sm text-gray-500 mt-2 bg-blue-50 p-2 rounded"><strong>功能說明：</strong> 引言句，開門見山點出主題「兩張圖都有不同特色」。</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-600">As shown in Picture A, the park is equipped with colorful playground facilities such as slides and climbing frames, creating a lively and cheerful atmosphere.</p>
+                                        <p class="text-gray-800 font-medium mt-1">從圖片 A 可以看出，公園裡設有色彩繽紛的遊樂設施，如溜滑梯與攀爬架，營造出熱鬧又愉快的氣氛。</p>
+                                        <p class="text-sm text-gray-500 mt-2 bg-blue-50 p-2 rounded"><strong>功能說明：</strong> 客觀描述 A 圖片，使用「as shown in...」比「In Picture A」更正式自然。</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-600">In contrast, Picture B features a more natural setting, filled with tall trees and a wide green field, giving visitors a sense of calm and freshness.</p>
+                                        <p class="text-gray-800 font-medium mt-1">相較之下，圖片 B 呈現出更自然的環境，滿是高大的樹木與廣闊的綠地，讓人感受到平靜與清新。</p>
+                                        <p class="text-sm text-gray-500 mt-2 bg-blue-50 p-2 rounded"><strong>功能說明：</strong> 使用高分轉折詞 In contrast，明確對比 A、B 兩圖的差異。</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-600">While the first park emphasizes fun and activity, the second one focuses on nature and serenity.</p>
+                                        <p class="text-gray-800 font-medium mt-1">第一座公園著重於娛樂與活動，而第二座則強調自然與寧靜。</p>
+                                        <p class="text-sm text-gray-500 mt-2 bg-blue-50 p-2 rounded"><strong>功能說明：</strong> 對比句型 While A..., B... 是學測高分作文中常見且成熟的句構。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-green-600">🟩 Paragraph 2 – Opinion and Explanation（意見與說明段）</h3>
+                                <div class="space-y-6">
+                                     <div>
+                                        <p class="text-gray-600">In my view, my ideal park would be closer to the one in Picture B.</p>
+                                        <p class="text-gray-800 font-medium mt-1">在我看來，我理想中的公園更接近圖片 B 的樣子。</p>
+                                        <p class="text-sm text-gray-500 mt-2 bg-green-50 p-2 rounded"><strong>功能說明：</strong> 表達個人觀點開頭句，使用 In my view 比 In my opinion 更自然。</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-600">To begin with, I favor a natural environment as it allows me to unwind and escape from daily stress.</p>
+                                        <p class="text-gray-800 font-medium mt-1">首先，我偏好自然的環境，因為它能讓我放鬆並擺脫日常壓力。</p>
+                                        <p class="text-sm text-gray-500 mt-2 bg-green-50 p-2 rounded"><strong>功能說明：</strong> 使用 To begin with 作為高分開頭，語氣流暢正式。</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-600">Moreover, an open and spacious park enables families and friends to enjoy picnics or engage in outdoor activities together, which strengthens relationships and promotes health.</p>
+                                        <p class="text-gray-800 font-medium mt-1">此外，寬敞的公園讓家人與朋友能一起野餐或參與戶外活動，這有助於增進感情並促進健康。</p>
+                                        <p class="text-sm text-gray-500 mt-2 bg-green-50 p-2 rounded"><strong>功能說明：</strong> 用 Moreover 替代 Second，語氣更自然；搭配動詞 enables、engage in 展現語言多樣性。</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-600">All in all, a tranquil and green park appeals to me most, as it provides both physical relaxation and mental peace.</p>
+                                        <p class="text-gray-800 font-medium mt-1">總而言之，我最喜歡的公園是寧靜又綠意盎然的，因為它同時能帶來身體的放鬆與心靈的平靜。</p>
+                                        <p class="text-sm text-gray-500 mt-2 bg-green-50 p-2 rounded"><strong>功能說明：</strong> 結尾句使用 All in all 與複合名詞 physical relaxation and mental peace，語感成熟且結構完整。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                     <div id="essay-115-predict" class="tab-content hidden">
+                        <article class="space-y-8">
+                            <h2 class="text-2xl font-bold mb-4 text-orange-700 border-l-4 border-orange-500 pl-4">範文：115年預測題目</h2>
+                             <div class="my-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <img src="cid:Gemini_Generated_Image_m4vkz9m4vkz9m4vk.jpg" alt="災民在洪水中艱難前行" class="rounded-lg shadow-md object-cover w-full h-full">
+                                <img src="cid:Gemini_Generated_Image_xsnf8sxsnf8sxsnf.jpg" alt="志工在避難所分發物資" class="rounded-lg shadow-md object-cover w-full h-full">
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                                 <h3 class="font-semibold text-gray-800 text-lg mb-2">題目提示</h3>
+                                 <p class="text-gray-700">每當重大災害（如地震、水災）發生時，總會造成嚴重的破壞與損失，但同時也激發出許多人性光輝的互助行動。請針對這個議題寫一篇英文作文，文分兩段。</p>
+                                 <p class="text-gray-700 mt-2"><strong>第一段：</strong>根據上方兩張對比圖片，描述災害發生時可能出現的兩種不同情景。</p>
+                                 <p class="text-gray-700 mt-2"><strong>第二段：</strong>說明你對於在災難中「互助」與「志願服務」的看法，並分享你相關的經驗或觀察。</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-gray-800">第一段：對比兩種情景</h3>
+                                <div class="space-y-6">
+                                    <div><p class="text-gray-600">When a natural disaster such as an earthquake or flood strikes, it often brings great destruction and loss to people’s lives.</p><p class="text-gray-800 font-medium mt-1">當地震或水災等天災發生時，往往會對人們的生活造成巨大的破壞與損失。</p></div>
+                                    <div><p class="text-gray-600">In the first picture, the streets are flooded, and residents are struggling in knee-deep dirty water, carrying what little they could save.</p><p class="text-gray-800 font-medium mt-1">在第一張圖片中，街道被洪水淹沒，居民在及膝的汙水中艱難前行，手上拿著僅能搶救出來的少許財物。</p></div>
+                                    <div><p class="text-gray-600">Their worried faces show fear and exhaustion, reflecting the hopelessness many victims feel during such disasters.</p><p class="text-gray-800 font-medium mt-1">他們憂慮的臉龐顯示出恐懼與疲憊，反映出許多受災者在災難中所感受到的無助。</p></div>
+                                    <div><p class="text-gray-600">In contrast, the second picture presents a warmer scene.</p><p class="text-gray-800 font-medium mt-1">相較之下，第二張圖片呈現出一個溫暖的畫面。</p></div>
+                                    <div><p class="text-gray-600">Volunteers wearing vests are smiling while distributing hot meals and bottled water to those in need at a temporary shelter.</p><p class="text-gray-800 font-medium mt-1">穿著背心的志工面帶微笑地在臨時避難所中，將熱食與瓶裝水分發給有需要的人。</p></div>
+                                    <div><p class="text-gray-600">The people receiving the supplies look grateful and comforted.</p><p class="text-gray-800 font-medium mt-1">接過物資的災民們面露感激與安慰之情。</p></div>
+                                    <div><p class="text-gray-600">These two scenes clearly show the dark side of disaster and the bright side of human kindness.</p><p class="text-gray-800 font-medium mt-1">這兩個畫面清楚地展現出災難的黑暗面與人性的光輝。</p></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-gray-800">第二段：個人觀點與經驗</h3>
+                                <div class="space-y-6">
+                                    <div><p class="text-gray-600">In my opinion, the spirit of mutual help and volunteer work is one of the most valuable things we can see during a disaster.</p><p class="text-gray-800 font-medium mt-1">在我看來，互助與志願服務的精神是災難中最珍貴的事情之一。</p></div>
+                                    <div><p class="text-gray-600">First, it gives people hope and emotional support when they feel lost.</p><p class="text-gray-800 font-medium mt-1">首先，它能在受災者感到迷茫時，給予他們希望與情感上的支持。</p></div>
+                                    <div><p class="text-gray-600">When I saw news about the 2024 earthquake in Hualien, I was touched by how volunteers traveled long distances just to deliver meals and blankets to victims.</p><p class="text-gray-800 font-medium mt-1">當我看到有關 2024 年花蓮地震的新聞時，我深受感動——許多志工遠道而來，只為了把熱食與毛毯送到受災戶手中。</p></div>
+                                    <div><p class="text-gray-600">Second, volunteering not only helps others but also teaches us the meaning of empathy and unity.</p><p class="text-gray-800 font-medium mt-1">其次，志願服務不僅幫助他人，也教會我們同理心與團結的意義。</p></div>
+                                    <div><p class="text-gray-600">By giving our time or effort, we make our society more caring and connected.</p><p class="text-gray-800 font-medium mt-1">當我們願意付出時間與心力，就能讓社會變得更加關懷與緊密。</p></div>
+                                    <div><p class="text-gray-600">To sum up, even though disasters bring pain and fear, they also remind us that kindness and cooperation can overcome any hardship.</p><p class="text-gray-800 font-medium mt-1">總而言之，雖然災難帶來痛苦與恐懼，但也提醒我們：善良與合作的力量能夠戰勝一切困難。</p></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 頁尾 -->
+        <footer class="text-center mt-16 text-gray-500">
+            <p>&copy; 2025 GSAT Writing Guide. All rights reserved.</p>
+        </footer>
+    </div>
+<script>
+    // 分頁功能 JavaScript
+    const tabContainer = document.getElementById('writing-guide');
+    if (tabContainer) {
+        const tabButtons = tabContainer.querySelectorAll('.tab-btn');
+        const tabContents = tabContainer.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.dataset.tab;
+
+                // 移除所有按鈕的 active 狀態
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active', 'text-indigo-600', 'border-indigo-500');
+                    btn.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                });
+
+                // 為當前點擊的按鈕加上 active 狀態
+                button.classList.add('active', 'text-indigo-600', 'border-indigo-500');
+                button.classList.remove('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+
+                // 隱藏所有內容
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+                // 顯示對應的內容
+                const activeContent = document.getElementById(tabId);
+                if (activeContent) {
+                    activeContent.classList.remove('hidden');
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>
