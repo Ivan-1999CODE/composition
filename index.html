@@ -48,7 +48,12 @@
         <main>
             <!-- 寫作技巧速覽 -->
             <section class="mb-8 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg shadow">
-                <h2 class="text-xl font-bold text-yellow-800 mb-4">寫作技巧速覽</h2>
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-xl font-bold text-yellow-800">寫作技巧速覽</h2>
+                    <button onclick="openHamburgerModal()" class="flex items-center gap-2 bg-yellow-200 hover:bg-yellow-300 text-yellow-800 px-3 py-1.5 rounded-full font-bold shadow transition transform hover:scale-105 text-sm md:text-base">
+                        🍔 漢堡寫作法圖解
+                    </button>
+                </div>
                 <div class="grid md:grid-cols-2 gap-6 text-gray-700">
                     <div>
                         <h3 class="font-semibold text-lg mb-2 text-gray-800">第一段：描述</h3>
@@ -133,26 +138,300 @@
                     <div id="transitions" class="tab-content hidden">
                         <h2 class="text-2xl font-bold mb-6 text-emerald-700 border-l-4 border-emerald-500 pl-4">高分轉折詞用法：從常用到精通</h2>
                         <div class="overflow-x-auto">
-                           <table class="w-full text-sm md:text-base border border-gray-200">
-                                <thead class="bg-gray-100 text-gray-800">
+                           <table class="w-full text-sm md:text-base border border-gray-200 shadow-sm rounded-lg overflow-hidden">
+                                <thead class="bg-emerald-100 text-emerald-900 border-b-2 border-emerald-200">
                                     <tr>
-                                        <th class="p-3 font-semibold">功能</th>
-                                        <th class="p-3 font-semibold">一般用法 (4–5級分)</th>
-                                        <th class="p-3 font-semibold">高分替代用法 (5–6級分)</th>
-                                        <th class="p-3 font-semibold">範例句</th>
+                                        <th class="p-4 font-bold min-w-[100px]">功能</th>
+                                        <th class="p-4 font-bold min-w-[150px]">一般用法 (4–5級分)</th>
+                                        <th class="p-4 font-bold min-w-[200px]">高分替代用法 (5–6級分)</th>
+                                        <th class="p-4 font-bold w-[45%]">選擇轉折詞查看專屬例句</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">1️⃣ 對比</td><td class="p-3">However, In contrast</td><td class="p-3">Whereas, While, Unlike, On the other hand, By comparison</td><td class="p-3">While some people enjoy outdoor activities, others prefer staying indoors.</td></tr>
-                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">2️⃣ 列點</td><td class="p-3">First, Second, Finally</td><td class="p-3">To begin with, Moreover, What’s more, In addition...</td><td class="p-3">To begin with, doing exercise regularly helps us stay fit.</td></tr>
-                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">3️⃣ 補充</td><td class="p-3">Moreover, Also</td><td class="p-3">Not only that, Besides, Apart from that, What’s more</td><td class="p-3">Not only that, it also helps improve our mental health.</td></tr>
-                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">4️⃣ 結論</td><td class="p-3">In conclusion</td><td class="p-3">To sum up, All in all, All things considered, Overall...</td><td class="p-3">All things considered, I believe an active lifestyle benefits us most.</td></tr>
-                                     <tr class="border-b"><td class="p-3 font-bold text-emerald-800">5️⃣ 表達觀點</td><td class="p-3">I think, I believe</td><td class="p-3">Personally, I find that..., From my perspective...</td><td class="p-3">From my perspective, spending time outdoors is a better way to relax.</td></tr>
-                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">6️⃣ 因果關係</td><td class="p-3">Because, So</td><td class="p-3">As a result, Consequently, Thus, That’s why, Due to...</td><td class="p-3">As a result, people who exercise regularly tend to be happier.</td></tr>
-                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">7️⃣ 舉例說明</td><td class="p-3">For example</td><td class="p-3">Such as, To illustrate, A case in point is...</td><td class="p-3">To illustrate, many students release stress by going hiking on weekends.</td></tr>
-                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">8️⃣ 轉折強調</td><td class="p-3">But, Still</td><td class="p-3">Nevertheless, Nonetheless, Indeed, In fact, Actually</td><td class="p-3">Indeed, technology has changed our lives in many ways.</td></tr>
-                                    <tr class="border-b"><td class="p-3 font-bold text-emerald-800">9️⃣ 條件假設</td><td class="p-3">If, Although</td><td class="p-3">Even if, Even though, Provided that, As long as...</td><td class="p-3">Even though it takes time, exercising is worth the effort.</td></tr>
-                                    <tr><td class="p-3 font-bold text-emerald-800">🔟 結果與目的</td><td class="p-3">So that, To, For</td><td class="p-3">In order to, So as to, For the purpose of...</td><td class="p-3">People work hard in order to live a comfortable life.</td></tr>
+                                    <!-- 1️⃣ 對比轉折 -->
+                                    <tr class="border-b hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">1️⃣ 對比轉折</td>
+                                        <td class="p-4 text-gray-500">However, In contrast</td>
+                                        <td class="p-4 font-medium text-emerald-700">Conversely, By comparison, On the contrary, Whereas</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row1', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row1-however">However</option>
+                                                    <option value="row1-incontrast">In contrast</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row1-conversely">Conversely</option>
+                                                    <option value="row1-bycomparison">By comparison</option>
+                                                    <option value="row1-onthecontrary">On the contrary</option>
+                                                    <option value="row1-whereas">Whereas</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <!-- 例句區 -->
+                                            <div id="row1-however" class="row1-sentence block mt-1 transition-all"><span class="font-bold text-gray-600">However</span>, rural areas offer a peaceful environment away from the city.</div>
+                                            <div id="row1-incontrast" class="row1-sentence hidden mt-1 transition-all">City life is often fast-paced and stressful. <span class="font-bold text-gray-600">In contrast</span>, country life is relaxing.</div>
+                                            
+                                            <div id="row1-conversely" class="row1-sentence hidden mt-1 transition-all">Some students thrive in competitive environments. <span class="font-bold text-emerald-600">Conversely</span>, others perform better under less pressure.</div>
+                                            <div id="row1-bycomparison" class="row1-sentence hidden mt-1 transition-all">Online shopping is incredibly fast. <span class="font-bold text-emerald-600">By comparison</span>, shopping in physical stores takes more time and effort.</div>
+                                            <div id="row1-onthecontrary" class="row1-sentence hidden mt-1 transition-all">The exam was not easy. <span class="font-bold text-emerald-600">On the contrary</span>, it was the most difficult one we've had this year.</div>
+                                            <div id="row1-whereas" class="row1-sentence hidden mt-1 transition-all">Extroverts gain energy from socializing, <span class="font-bold text-emerald-600">whereas</span> introverts recharge by spending time alone.</div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 2️⃣ 順序列點 -->
+                                    <tr class="border-b hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">2️⃣ 順序列點</td>
+                                        <td class="p-4 text-gray-500">First, Second, Finally</td>
+                                        <td class="p-4 font-medium text-emerald-700">First and foremost, To begin with, Subsequently, Ultimately</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row2', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row2-first">First</option>
+                                                    <option value="row2-second">Second</option>
+                                                    <option value="row2-finally">Finally</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row2-foremost">First and foremost</option>
+                                                    <option value="row2-begin">To begin with</option>
+                                                    <option value="row2-subsequently">Subsequently</option>
+                                                    <option value="row2-ultimately">Ultimately</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <div id="row2-first" class="row2-sentence block mt-1"><span class="font-bold text-gray-600">First</span>, developing a reading habit helps us learn new things.</div>
+                                            <div id="row2-second" class="row2-sentence hidden mt-1"><span class="font-bold text-gray-600">Second</span>, regular reading can improve our writing skills over time.</div>
+                                            <div id="row2-finally" class="row2-sentence hidden mt-1"><span class="font-bold text-gray-600">Finally</span>, it allows us to relax after a long day of studying.</div>
+                                            
+                                            <div id="row2-foremost" class="row2-sentence hidden mt-1"><span class="font-bold text-emerald-600">First and foremost</span>, developing a reading habit significantly broadens our horizons.</div>
+                                            <div id="row2-begin" class="row2-sentence hidden mt-1"><span class="font-bold text-emerald-600">To begin with</span>, engaging in outdoor activities builds up our physical strength.</div>
+                                            <div id="row2-subsequently" class="row2-sentence hidden mt-1">He graduated from college with top grades and <span class="font-bold text-emerald-600">subsequently</span> found a job in a leading tech company.</div>
+                                            <div id="row2-ultimately" class="row2-sentence hidden mt-1">Hard work, perseverance, and a positive attitude will <span class="font-bold text-emerald-600">ultimately</span> lead to success.</div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 3️⃣ 遞進補充 -->
+                                    <tr class="border-b hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">3️⃣ 遞進補充</td>
+                                        <td class="p-4 text-gray-500">Moreover, Also</td>
+                                        <td class="p-4 font-medium text-emerald-700">Furthermore, In addition, Apart from this, Not to mention</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row3', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row3-moreover">Moreover</option>
+                                                    <option value="row3-also">Also</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row3-furthermore">Furthermore</option>
+                                                    <option value="row3-inaddition">In addition</option>
+                                                    <option value="row3-apart">Apart from this</option>
+                                                    <option value="row3-notto">Not to mention</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <div id="row3-moreover" class="row3-sentence block mt-1">Using smartphones before bed ruins our sleep. <span class="font-bold text-gray-600">Moreover</span>, it hurts our eyes.</div>
+                                            <div id="row3-also" class="row3-sentence hidden mt-1">Volunteering helps people in need. <span class="font-bold text-gray-600">Also</span>, it makes us feel happy.</div>
+                                            
+                                            <div id="row3-furthermore" class="row3-sentence hidden mt-1">Social media causes anxiety among teens. <span class="font-bold text-emerald-600">Furthermore</span>, over-reliance on it negatively impacts real-life relationships.</div>
+                                            <div id="row3-inaddition" class="row3-sentence hidden mt-1">Air pollution harms wildlife. <span class="font-bold text-emerald-600">In addition</span>, it poses a severe threat to human respiratory health.</div>
+                                            <div id="row3-apart" class="row3-sentence hidden mt-1">Learning a language requires time. <span class="font-bold text-emerald-600">Apart from this</span>, it demands constant practice and patience.</div>
+                                            <div id="row3-notto" class="row3-sentence hidden mt-1">The trip was physically exhausting, <span class="font-bold text-emerald-600">not to mention</span> the fact that it rained all day long.</div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 4️⃣ 總結結論 -->
+                                    <tr class="border-b hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">4️⃣ 總結結論</td>
+                                        <td class="p-4 text-gray-500">In conclusion</td>
+                                        <td class="p-4 font-medium text-emerald-700">All things considered, Taking everything into account, To summarize</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row4', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row4-conclusion">In conclusion</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row4-allthings">All things considered</option>
+                                                    <option value="row4-taking">Taking everything into account</option>
+                                                    <option value="row4-summarize">To summarize</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <div id="row4-conclusion" class="row4-sentence block mt-1"><span class="font-bold text-gray-600">In conclusion</span>, protecting the earth is everyone's responsibility.</div>
+                                            
+                                            <div id="row4-allthings" class="row4-sentence hidden mt-1"><span class="font-bold text-emerald-600">All things considered</span>, the long-term benefits of a sustainable lifestyle far outweigh the minor inconveniences.</div>
+                                            <div id="row4-taking" class="row4-sentence hidden mt-1"><span class="font-bold text-emerald-600">Taking everything into account</span>, studying abroad is an invaluable and rewarding experience.</div>
+                                            <div id="row4-summarize" class="row4-sentence hidden mt-1"><span class="font-bold text-emerald-600">To summarize</span>, effective communication and teamwork are the keys to solving complex global problems.</div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 5️⃣ 表達觀點 -->
+                                    <tr class="border-b hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">5️⃣ 表達觀點</td>
+                                        <td class="p-4 text-gray-500">I think, I believe</td>
+                                        <td class="p-4 font-medium text-emerald-700">From my perspective, Personally speaking, I am convinced that...</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row5', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row5-think">I think</option>
+                                                    <option value="row5-believe">I believe</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row5-perspective">From my perspective</option>
+                                                    <option value="row5-personally">Personally speaking</option>
+                                                    <option value="row5-convinced">I am convinced that</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <div id="row5-think" class="row5-sentence block mt-1"><span class="font-bold text-gray-600">I think</span> that doing experiments is better than just reading books.</div>
+                                            <div id="row5-believe" class="row5-sentence hidden mt-1"><span class="font-bold text-gray-600">I believe</span> that students should have more free time to explore their interests.</div>
+                                            
+                                            <div id="row5-perspective" class="row5-sentence hidden mt-1"><span class="font-bold text-emerald-600">From my perspective</span>, academic grades alone do not define a person's true potential or worth.</div>
+                                            <div id="row5-personally" class="row5-sentence hidden mt-1"><span class="font-bold text-emerald-600">Personally speaking</span>, I prefer traveling independently rather than joining a guided tour group.</div>
+                                            <div id="row5-convinced" class="row5-sentence hidden mt-1"><span class="font-bold text-emerald-600">I am convinced that</span> hands-on experiences are far more valuable than theoretical textbook knowledge.</div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 6️⃣ 因果推論 -->
+                                    <tr class="border-b hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">6️⃣ 因果推論</td>
+                                        <td class="p-4 text-gray-500">Because, So</td>
+                                        <td class="p-4 font-medium text-emerald-700">Consequently, Accordingly, As a consequence, Hence</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row6', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row6-because">Because</option>
+                                                    <option value="row6-so">So</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row6-consequently">Consequently</option>
+                                                    <option value="row6-accordingly">Accordingly</option>
+                                                    <option value="row6-consequence">As a consequence</option>
+                                                    <option value="row6-hence">Hence</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <div id="row6-because" class="row6-sentence block mt-1"><span class="font-bold text-gray-600">Because</span> teenagers face immense pressure, they often don't get enough sleep.</div>
+                                            <div id="row6-so" class="row6-sentence hidden mt-1">Teenagers face immense pressure, <span class="font-bold text-gray-600">so</span> many of them suffer from sleep problems.</div>
+                                            
+                                            <div id="row6-consequently" class="row6-sentence hidden mt-1">Teenagers today face intense academic pressure. <span class="font-bold text-emerald-600">Consequently</span>, an increasing number of students suffer from sleep deprivation.</div>
+                                            <div id="row6-accordingly" class="row6-sentence hidden mt-1">The school rules regarding smartphones have changed, and <span class="font-bold text-emerald-600">accordingly</span>, students must adjust their habits.</div>
+                                            <div id="row6-consequence" class="row6-sentence hidden mt-1">He constantly neglected his studies to play video games. <span class="font-bold text-emerald-600">As a consequence</span>, he failed all his final exams.</div>
+                                            <div id="row6-hence" class="row6-sentence hidden mt-1">The forest habitats are being rapidly destroyed; <span class="font-bold text-emerald-600">hence</span>, many species are facing extinction.</div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 7️⃣ 舉例說明 -->
+                                    <tr class="border-b hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">7️⃣ 舉例說明</td>
+                                        <td class="p-4 text-gray-500">For example</td>
+                                        <td class="p-4 font-medium text-emerald-700">To illustrate, A prime example is..., Namely, For instance</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row7', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row7-forexample">For example</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row7-illustrate">To illustrate</option>
+                                                    <option value="row7-prime">A prime example is</option>
+                                                    <option value="row7-namely">Namely</option>
+                                                    <option value="row7-instance">For instance</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <div id="row7-forexample" class="row7-sentence block mt-1">There are many ways to save energy. <span class="font-bold text-gray-600">For example</span>, we can turn off the lights when leaving a room.</div>
+                                            
+                                            <div id="row7-illustrate" class="row7-sentence hidden mt-1">Small actions can create significant changes. <span class="font-bold text-emerald-600">To illustrate</span>, implementing a campus recycling program drastically reduces daily waste.</div>
+                                            <div id="row7-prime" class="row7-sentence hidden mt-1">Many animal species are critically endangered. <span class="font-bold text-emerald-600">A prime example is</span> the polar bear, which is rapidly losing its icy habitat.</div>
+                                            <div id="row7-namely" class="row7-sentence hidden mt-1">The school plans to introduce two innovative courses next semester, <span class="font-bold text-emerald-600">namely</span>, coding and artificial intelligence.</div>
+                                            <div id="row7-instance" class="row7-sentence hidden mt-1">Consuming excessive junk food causes various health issues. <span class="font-bold text-emerald-600">For instance</span>, it often leads to early-onset obesity.</div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 8️⃣ 讓步強調 -->
+                                    <tr class="border-b hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">8️⃣ 讓步強調</td>
+                                        <td class="p-4 text-gray-500">But, Still</td>
+                                        <td class="p-4 font-medium text-emerald-700">Admittedly, Undoubtedly, As a matter of fact, Indeed</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row8', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row8-but">But</option>
+                                                    <option value="row8-still">Still</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row8-admittedly">Admittedly</option>
+                                                    <option value="row8-undoubtedly">Undoubtedly</option>
+                                                    <option value="row8-matter">As a matter of fact</option>
+                                                    <option value="row8-indeed">Indeed</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <div id="row8-but" class="row8-sentence block mt-1">Learning a new language is hard, <span class="font-bold text-gray-600">but</span> it is very useful.</div>
+                                            <div id="row8-still" class="row8-sentence hidden mt-1">The weather was terrible that morning. <span class="font-bold text-gray-600">Still</span>, the volunteers decided to go clean the beach.</div>
+                                            
+                                            <div id="row8-admittedly" class="row8-sentence hidden mt-1"><span class="font-bold text-emerald-600">Admittedly</span>, mastering a second language requires immense effort, but the cultural rewards are unparalleled.</div>
+                                            <div id="row8-undoubtedly" class="row8-sentence hidden mt-1"><span class="font-bold text-emerald-600">Undoubtedly</span>, artificial intelligence has completely revolutionized the way we work and communicate.</div>
+                                            <div id="row8-matter" class="row8-sentence hidden mt-1">He is not naturally gifted. <span class="font-bold text-emerald-600">As a matter of fact</span>, he is simply one of the most disciplined students in the class.</div>
+                                            <div id="row8-indeed" class="row8-sentence hidden mt-1"><span class="font-bold text-emerald-600">Indeed</span>, solving complex environmental issues requires immediate and unified global cooperation.</div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 9️⃣ 條件假設 -->
+                                    <tr class="border-b hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">9️⃣ 條件假設</td>
+                                        <td class="p-4 text-gray-500">If, Although</td>
+                                        <td class="p-4 font-medium text-emerald-700">Provided that, Given that, As long as, In the event of</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row9', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row9-if">If</option>
+                                                    <option value="row9-although">Although</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row9-provided">Provided that</option>
+                                                    <option value="row9-given">Given that</option>
+                                                    <option value="row9-aslongas">As long as</option>
+                                                    <option value="row9-event">In the event of</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <div id="row9-if" class="row9-sentence block mt-1"><span class="font-bold text-gray-600">If</span> we take action now, we can stop global warming.</div>
+                                            <div id="row9-although" class="row9-sentence hidden mt-1"><span class="font-bold text-gray-600">Although</span> the test was difficult, almost everyone passed.</div>
+                                            
+                                            <div id="row9-provided" class="row9-sentence hidden mt-1"><span class="font-bold text-emerald-600">Provided that</span> we take immediate collective action, we can still mitigate the severe effects of climate change.</div>
+                                            <div id="row9-given" class="row9-sentence hidden mt-1"><span class="font-bold text-emerald-600">Given that</span> our preparation time is extremely limited, we must prioritize the most urgent tasks.</div>
+                                            <div id="row9-aslongas" class="row9-sentence hidden mt-1">You will eventually achieve your goals <span class="font-bold text-emerald-600">as long as</span> you maintain a positive and resilient mindset.</div>
+                                            <div id="row9-event" class="row9-sentence hidden mt-1"><span class="font-bold text-emerald-600">In the event of</span> an unforeseen emergency, please follow the evacuation signs calmly.</div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 🔟 目的意圖 -->
+                                    <tr class="hover:bg-emerald-50 transition-colors">
+                                        <td class="p-4 font-bold text-emerald-800 whitespace-nowrap">🔟 目的意圖</td>
+                                        <td class="p-4 text-gray-500">So that, To, For</td>
+                                        <td class="p-4 font-medium text-emerald-700">With the aim of, In an effort to, For the sake of</td>
+                                        <td class="p-4 text-gray-700">
+                                            <select class="mb-2 text-sm border border-emerald-300 rounded text-emerald-800 bg-emerald-50 py-1 px-2 outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer w-full md:w-auto font-medium" onchange="toggleSentence('row10', this.value)">
+                                                <optgroup label="📝 一般寫法 (4-5級分)">
+                                                    <option value="row10-sothat">So that</option>
+                                                    <option value="row10-to">To</option>
+                                                    <option value="row10-for">For</option>
+                                                </optgroup>
+                                                <optgroup label="🌟 高分寫法 (5-6級分)">
+                                                    <option value="row10-withaim">With the aim of</option>
+                                                    <option value="row10-effort">In an effort to</option>
+                                                    <option value="row10-sake">For the sake of</option>
+                                                </optgroup>
+                                            </select>
+                                            
+                                            <div id="row10-sothat" class="row10-sentence block mt-1">He studies hard everyday <span class="font-bold text-gray-600">so that</span> he can get into a good college.</div>
+                                            <div id="row10-to" class="row10-sentence hidden mt-1">Many teenagers join school clubs <span class="font-bold text-gray-600">to</span> make new friends.</div>
+                                            <div id="row10-for" class="row10-sentence hidden mt-1">We must protect the forest <span class="font-bold text-gray-600">for</span> the animals living there.</div>
+                                            
+                                            <div id="row10-withaim" class="row10-sentence hidden mt-1">The government introduced strict new policies <span class="font-bold text-emerald-600">with the aim of</span> significantly reducing carbon emissions.</div>
+                                            <div id="row10-effort" class="row10-sentence hidden mt-1">Many proactive teenagers participate in debate clubs <span class="font-bold text-emerald-600">in an effort to</span> step out of their comfort zones.</div>
+                                            <div id="row10-sake" class="row10-sentence hidden mt-1">We are obligated to protect our natural environment <span class="font-bold text-emerald-600">for the sake of</span> our future generations.</div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -347,6 +626,87 @@
             </section>
         </main>
 
+        <!-- 漢堡寫作法 Modal -->
+        <div id="hamburgerModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+            <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl overflow-hidden relative flex flex-col max-h-[90vh]">
+                <!-- Modal 標題 -->
+                <div class="bg-yellow-400 p-4 flex justify-between items-center">
+                    <h3 class="text-xl md:text-2xl font-bold text-yellow-900 flex items-center gap-2">🍔 漢堡寫作法 (The Hamburger Method)</h3>
+                    <button onclick="closeHamburgerModal()" class="text-yellow-900 hover:text-black font-bold text-2xl leading-none">&times;</button>
+                </div>
+                
+                <!-- Modal 內容 -->
+                <div class="p-6 md:p-8 overflow-y-auto grid md:grid-cols-2 gap-8 bg-orange-50">
+                    <!-- 第一段漢堡 -->
+                    <div class="flex flex-col space-y-1">
+                        <h4 class="text-center font-bold text-xl mb-3 text-orange-800">第一段：客觀描述</h4>
+                        
+                        <!-- 上餅皮 (Top Bun) -->
+                        <div class="bg-amber-400 rounded-t-[3rem] pt-6 pb-4 px-4 text-center shadow-md relative">
+                             <!-- 芝麻點綴 -->
+                             <div class="absolute top-3 left-1/4 w-2 h-1 bg-white rounded-full opacity-80"></div>
+                             <div class="absolute top-4 left-2/4 w-2 h-1 bg-white rounded-full opacity-80"></div>
+                             <div class="absolute top-3 left-3/4 w-2 h-1 bg-white rounded-full opacity-80"></div>
+                             
+                             <span class="font-bold text-amber-900 text-lg block">🍞 開頭 (Top Bun)</span>
+                             <p class="text-sm font-medium text-amber-800 mt-1">簡介圖片 A (+B) 內容</p>
+                        </div>
+                        
+                        <!-- 內餡一 (生菜 Lettuce) -->
+                        <div class="bg-green-400 py-4 px-4 text-center rounded-xl shadow-md border-b-4 border-green-500">
+                             <span class="font-bold text-green-900 block">🥬 內餡一層：A 特點</span>
+                             <p class="text-sm font-medium text-green-800 mt-1">描述圖 A 的特點並解釋</p>
+                        </div>
+                        
+                        <!-- 內餡二 (肉排 Meat) -->
+                        <div class="bg-amber-700 py-5 px-4 text-center rounded-xl shadow-md border-b-4 border-amber-900">
+                             <span class="font-bold text-orange-50 block">🥩 內餡二層：B 特點 (或A另一特點)</span>
+                             <p class="text-sm font-medium text-orange-200 mt-1">描述圖 B 的特點並解釋</p>
+                        </div>
+                        
+                        <!-- 下餅皮 (Bottom Bun) -->
+                        <div class="bg-amber-400 rounded-b-[2rem] pt-4 pb-6 px-4 text-center shadow-md">
+                             <span class="font-bold text-amber-900 text-lg block">🍞 結論 (Bottom Bun)</span>
+                             <p class="text-sm font-medium text-amber-800 mt-1">總結核心差異 (為第二段鋪墊)</p>
+                        </div>
+                    </div>
+
+                    <!-- 第二段漢堡 -->
+                    <div class="flex flex-col space-y-1">
+                        <h4 class="text-center font-bold text-xl mb-3 text-orange-800">第二段：申論觀點</h4>
+                        
+                        <!-- 上餅皮 (Top Bun) -->
+                        <div class="bg-amber-400 rounded-t-[3rem] pt-6 pb-4 px-4 text-center shadow-md relative">
+                             <div class="absolute top-3 left-1/4 w-2 h-1 bg-white rounded-full opacity-80"></div>
+                             <div class="absolute top-4 left-2/4 w-2 h-1 bg-white rounded-full opacity-80"></div>
+                             <div class="absolute top-3 left-3/4 w-2 h-1 bg-white rounded-full opacity-80"></div>
+                             
+                             <span class="font-bold text-amber-900 text-lg block">🍞 開頭 (Top Bun)</span>
+                             <p class="text-sm font-medium text-amber-800 mt-1">提出 1-2 個主要論點</p>
+                        </div>
+                        
+                        <!-- 內餡一 (生菜 Lettuce) -->
+                        <div class="bg-green-400 py-4 px-4 text-center rounded-xl shadow-md border-b-4 border-green-500">
+                             <span class="font-bold text-green-900 block">🥬 內餡一層：Reason A</span>
+                             <p class="text-sm font-medium text-green-800 mt-1">Explain A (提出理由與細節說明)</p>
+                        </div>
+                        
+                        <!-- 內餡二 (肉排 Meat) -->
+                        <div class="bg-amber-700 py-5 px-4 text-center rounded-xl shadow-md border-b-4 border-amber-900">
+                             <span class="font-bold text-orange-50 block">🥩 內餡二層：Reason B</span>
+                             <p class="text-sm font-medium text-orange-200 mt-1">Explain B (提出理由與細節說明)</p>
+                        </div>
+                        
+                        <!-- 下餅皮 (Bottom Bun) -->
+                        <div class="bg-amber-400 rounded-b-[2rem] pt-4 pb-6 px-4 text-center shadow-md">
+                             <span class="font-bold text-amber-900 text-lg block">🍞 結尾 (Bottom Bun)</span>
+                             <p class="text-sm font-medium text-amber-800 mt-1">用約 1 句話重申論點總結</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- 頁尾 -->
         <footer class="text-center mt-16 text-gray-500">
             <p>&copy; 2025 GSAT Writing Guide. All rights reserved.</p>
@@ -385,6 +745,40 @@
                 }
             });
         });
+    }
+
+    // 漢堡寫作法 Modal 控制邏輯
+    function openHamburgerModal() {
+        document.getElementById('hamburgerModal').classList.remove('hidden');
+    }
+    
+    function closeHamburgerModal() {
+        document.getElementById('hamburgerModal').classList.add('hidden');
+    }
+    
+    // 點擊 Modal 外部背景時關閉視窗
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('hamburgerModal');
+        if (event.target === modal) {
+            closeHamburgerModal();
+        }
+    });
+
+    // 句子切換選單功能
+    function toggleSentence(rowId, sentenceId) {
+        // 先隱藏該列的所有例句
+        const sentences = document.querySelectorAll('.' + rowId + '-sentence');
+        sentences.forEach(s => {
+            s.classList.add('hidden');
+            s.classList.remove('block');
+        });
+        
+        // 顯示被選中的例句
+        const target = document.getElementById(sentenceId);
+        if (target) {
+            target.classList.remove('hidden');
+            target.classList.add('block');
+        }
     }
 </script>
 </body>
