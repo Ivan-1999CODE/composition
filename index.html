@@ -345,6 +345,10 @@
     .connector-stage .chips { gap: 6px; }
     .connector-stage .chip { padding: 5px 8px; font-size: .78rem; }
     .connector-rule { margin-top: 18px; padding: 14px 16px; border-left: 4px solid var(--yellow); border-radius: 0 12px 12px 0; background: #fff8df; font-size: .9rem; }
+    .example-chip { cursor: pointer; }
+    .example-chip:hover, .example-chip:focus-visible { color: var(--white); background: var(--green); outline: none; }
+    .example-chip.active { color: var(--white); border-color: var(--green-dark); background: var(--green-dark); box-shadow: 0 3px 0 rgba(22, 74, 59, .18); }
+    .connector-example { margin-left: 3px; font-family: Georgia, "Times New Roman", serif; }
     .resource-section { padding: 80px 0; }
     .resource-section.alt { background: rgba(255, 255, 255, .42); border-block: 1px solid rgba(221, 216, 205, .75); }
     .resource-head { display: flex; justify-content: space-between; gap: 22px; align-items: end; margin-bottom: 28px; }
@@ -531,25 +535,25 @@
               <h4>第一段：描述與比較的轉折詞</h4>
               <p>重點是讓讀者清楚知道你正在描述哪一張圖，以及兩張圖有什麼差異。</p>
               <div class="connector-flow">
-                <div class="connector-stage"><strong>總述圖片</strong><div class="chips"><span class="chip">The pictures show ...</span><span class="chip">The pictures illustrate ...</span></div></div>
-                <div class="connector-stage"><strong>描述圖 A</strong><div class="chips"><span class="chip">In Picture A, ...</span><span class="chip">As shown in Picture A, ...</span></div></div>
-                <div class="connector-stage"><strong>轉到圖 B</strong><div class="chips"><span class="chip">However, ...</span><span class="chip">In contrast, ...</span><span class="chip">By comparison, ...</span></div></div>
-                <div class="connector-stage"><strong>句中比較</strong><div class="chips"><span class="chip">while</span><span class="chip">whereas</span></div></div>
-                <div class="connector-stage"><strong>收束差異</strong><div class="chips"><span class="chip">Overall, ...</span><span class="chip">Obviously, ...</span></div></div>
+                <div class="connector-stage"><strong>總述圖片</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="The pictures show two different types of parks." aria-pressed="false">The pictures show ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="The pictures illustrate two contrasting park designs." aria-pressed="false">The pictures illustrate ...</button></div></div>
+                <div class="connector-stage"><strong>描述圖 A</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="In Picture A, children are playing on colorful playground equipment." aria-pressed="false">In Picture A, ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="As shown in Picture A, the park is filled with slides and climbing frames." aria-pressed="false">As shown in Picture A, ...</button></div></div>
+                <div class="connector-stage"><strong>轉到圖 B</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="However, Picture B offers a much quieter environment." aria-pressed="false">However, ...</button><button type="button" class="chip example-chip active" data-example-group="p1" data-example="Picture A is lively. In contrast, Picture B is quiet and peaceful." aria-pressed="true">In contrast, ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="By comparison, Picture B provides more open space for relaxation." aria-pressed="false">By comparison, ...</button></div></div>
+                <div class="connector-stage"><strong>句中比較</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="Picture A is lively, while Picture B is calm and peaceful." aria-pressed="false">while</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="Picture A focuses on playground facilities, whereas Picture B emphasizes nature." aria-pressed="false">whereas</button></div></div>
+                <div class="connector-stage"><strong>收束差異</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="Overall, the two parks provide visitors with very different experiences." aria-pressed="false">Overall, ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="Obviously, the greatest difference lies in their atmosphere and purpose." aria-pressed="false">Obviously, ...</button></div></div>
               </div>
-              <div class="connector-rule"><strong>示範：</strong>Picture A is lively. <em>In contrast,</em> Picture B is quiet and peaceful.</div>
+              <div class="connector-rule" aria-live="polite"><strong>示範：</strong><span class="connector-example" id="p1ConnectorExample">Picture A is lively. In contrast, Picture B is quiet and peaceful.</span></div>
             </article>
             <article class="connector-card">
               <h4>第二段：申論與解釋的轉折詞</h4>
               <p>重點是讓讀者看得出你的立場、兩組理由、說明或例子，以及最後的結論。</p>
               <div class="connector-flow">
-                <div class="connector-stage"><strong>表達觀點</strong><div class="chips"><span class="chip">In my opinion, ...</span><span class="chip">Personally, ...</span></div></div>
-                <div class="connector-stage"><strong>理由一</strong><div class="chips"><span class="chip">First, ...</span><span class="chip">To begin with, ...</span></div></div>
-                <div class="connector-stage"><strong>解釋／舉例</strong><div class="chips"><span class="chip">For example, ...</span><span class="chip">Specifically, ...</span><span class="chip">This means that ...</span></div></div>
-                <div class="connector-stage"><strong>理由二</strong><div class="chips"><span class="chip">Second, ...</span><span class="chip">In addition, ...</span><span class="chip">Moreover, ...</span></div></div>
-                <div class="connector-stage"><strong>結尾</strong><div class="chips"><span class="chip">In conclusion, ...</span><span class="chip">To sum up, ...</span><span class="chip">All in all, ...</span></div></div>
+                <div class="connector-stage"><strong>表達觀點</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="In my opinion, Picture B is closer to my ideal park." aria-pressed="false">In my opinion, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="Personally, I prefer a park with more trees and open space." aria-pressed="false">Personally, ...</button></div></div>
+                <div class="connector-stage"><strong>理由一</strong><div class="chips"><button type="button" class="chip example-chip active" data-example-group="p2" data-example="First, a natural environment helps me relax." aria-pressed="true">First, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="To begin with, walking among trees allows me to forget daily stress." aria-pressed="false">To begin with, ...</button></div></div>
+                <div class="connector-stage"><strong>解釋／舉例</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="For example, I can take a quiet walk after a stressful day." aria-pressed="false">For example, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="Specifically, the shade and fresh air make outdoor activities more comfortable." aria-pressed="false">Specifically, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="This means that visitors can rest both physically and mentally." aria-pressed="false">This means that ...</button></div></div>
+                <div class="connector-stage"><strong>理由二</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="Second, an open park gives families more room to spend time together." aria-pressed="false">Second, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="In addition, people can have picnics or exercise on the grass." aria-pressed="false">In addition, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="Moreover, shared outdoor activities can strengthen relationships." aria-pressed="false">Moreover, ...</button></div></div>
+                <div class="connector-stage"><strong>結尾</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="In conclusion, a peaceful green park would be my ideal choice." aria-pressed="false">In conclusion, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="To sum up, I prefer Picture B because it supports relaxation and social activities." aria-pressed="false">To sum up, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="All in all, a natural and spacious park appeals to me most." aria-pressed="false">All in all, ...</button></div></div>
               </div>
-              <div class="connector-rule"><strong>示範：</strong><em>First,</em> natural parks help me relax. <em>For example,</em> I can walk under the trees after a stressful day.</div>
+              <div class="connector-rule" aria-live="polite"><strong>示範：</strong><span class="connector-example" id="p2ConnectorExample">First, a natural environment helps me relax.</span></div>
             </article>
           </div>
           <p class="warning">標點提醒：However、In contrast、First、For example 等放在句首時，後面通常要加逗號；while 和 whereas 通常直接連接兩個子句。</p>
@@ -1259,6 +1263,19 @@
         item.setAttribute('aria-selected', i === index ? 'true' : 'false');
       });
       lessonPanels.forEach((panel, i) => panel.classList.toggle('active', i === index));
+    }));
+    const exampleChips = [...document.querySelectorAll('.example-chip')];
+    exampleChips.forEach(chip => chip.addEventListener('click', () => {
+      const group = chip.dataset.exampleGroup;
+      const target = document.getElementById(`${group}ConnectorExample`);
+      if (!target) return;
+      document.querySelectorAll(`[data-example-group="${group}"]`).forEach(item => {
+        item.classList.remove('active');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      chip.classList.add('active');
+      chip.setAttribute('aria-pressed', 'true');
+      target.textContent = chip.dataset.example;
     }));
     document.getElementById('rebuildDraft').addEventListener('click', () => { assembleDraft(); toast('已用目前的句子重新組合全文。'); });
     document.getElementById('finalDraft').addEventListener('input', updateMetrics);
