@@ -99,6 +99,7 @@
       border: 1px solid transparent;
       border-radius: 14px;
       font-weight: 800;
+      text-decoration: none;
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
     .btn:hover { transform: translateY(-2px); }
@@ -277,9 +278,87 @@
       transition: .2s ease;
     }
     .toast.show { opacity: 1; transform: translateY(0); }
+    .top-links { display: flex; gap: 8px; }
+    .top-links a { padding: 7px 10px; border-radius: 10px; color: var(--muted); text-decoration: none; font-size: .87rem; font-weight: 800; }
+    .top-links a:hover { color: var(--green-dark); background: var(--green-soft); }
+    .learning { padding: 30px 0 88px; }
+    .learning-shell { overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: var(--paper); box-shadow: var(--shadow); }
+    .learning-head { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; padding: clamp(26px, 5vw, 48px); border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #fffdf8, #f1f7f3); }
+    .learning-head h2 { max-width: 720px; margin-bottom: 8px; font-size: clamp(2rem, 4vw, 3.15rem); letter-spacing: -.045em; }
+    .learning-head p { max-width: 720px; margin-bottom: 0; color: var(--muted); }
+    .level-note { padding: 10px 14px; border-radius: 14px; color: var(--green-dark); background: var(--green-soft); font-size: .88rem; font-weight: 850; white-space: nowrap; }
+    .lesson-tabs { display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 28px; border-bottom: 1px solid var(--line); background: #faf7f0; }
+    .lesson-tab { padding: 17px 10px; border: 0; border-bottom: 3px solid transparent; color: var(--muted); background: transparent; font-weight: 850; }
+    .lesson-tab.active { color: var(--green-dark); border-color: var(--orange); }
+    .lesson-panel { display: none; padding: clamp(26px, 5vw, 48px); }
+    .lesson-panel.active { display: block; animation: reveal .28s ease; }
+    .lesson-panel > h3 { margin-bottom: 6px; font-size: 1.6rem; letter-spacing: -.025em; }
+    .lesson-intro { max-width: 760px; margin-bottom: 24px; color: var(--muted); }
+    .task-grid, .burger-grid, .idea-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .task-card { padding: 22px; border-radius: 18px; background: var(--white); border: 1px solid var(--line); }
+    .task-card:first-child { border-top: 5px solid var(--yellow); }
+    .task-card:last-child { border-top: 5px solid var(--orange); }
+    .task-card strong { display: block; margin-bottom: 7px; color: var(--green-dark); }
+    .burger { padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
+    .burger h4 { text-align: center; margin: 0 0 14px; }
+    .burger-stack { display: grid; gap: 5px; }
+    .burger-layer { padding: 13px 16px; text-align: center; font-size: .92rem; font-weight: 800; }
+    .burger-layer small { display: block; margin-top: 2px; font-weight: 550; opacity: .78; }
+    .bun-top { border-radius: 60px 60px 13px 13px; color: #573814; background: var(--yellow); }
+    .lettuce { border-radius: 14px; color: #164a3b; background: #9bd6ad; }
+    .filling { border-radius: 14px; color: #fff7e9; background: #a85836; }
+    .bun-bottom { border-radius: 13px 13px 38px 38px; color: #573814; background: var(--yellow); }
+    .idea-card { padding: 18px; border: 1px solid var(--line); border-radius: 17px; background: var(--white); }
+    .idea-card .role { display: inline-block; margin-bottom: 8px; padding: 4px 8px; border-radius: 8px; color: var(--green-dark); background: var(--green-soft); font-size: .76rem; font-weight: 900; }
+    .idea-card .keyword { margin-bottom: 7px; color: var(--orange); font-weight: 850; }
+    .idea-card p:last-child { margin-bottom: 0; }
+    .sentence-ladder { display: grid; gap: 12px; }
+    .ladder-row { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 15px; align-items: start; padding: 16px; border: 1px solid var(--line); border-radius: 15px; background: var(--white); }
+    .ladder-row strong { color: var(--green-dark); }
+    .ladder-row p { margin: 0; font-family: Georgia, "Times New Roman", serif; }
+    .answer-reveal { margin-top: 16px; border: 1px solid #c9d8d1; border-radius: 17px; background: var(--white); }
+    .answer-reveal summary { padding: 16px 18px; color: var(--green-dark); font-weight: 900; cursor: pointer; }
+    .answer-reveal > div { padding: 0 18px 18px; }
+    .answer-reveal[open] summary { border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+    .model-block { padding: 20px; border-radius: 15px; color: #eff8f3; background: var(--green-dark); }
+    .model-block p { font-family: Georgia, "Times New Roman", serif; }
+    .model-block p:last-child { margin-bottom: 0; }
+    .sentence-note { margin-top: 6px; color: var(--muted); font-size: .86rem; }
+    .resource-section { padding: 80px 0; }
+    .resource-section.alt { background: rgba(255, 255, 255, .42); border-block: 1px solid rgba(221, 216, 205, .75); }
+    .resource-head { display: flex; justify-content: space-between; gap: 22px; align-items: end; margin-bottom: 28px; }
+    .resource-head .section-heading { margin-bottom: 0; }
+    .resource-head .section-heading p { margin-bottom: 0; }
+    .tool-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .tool-card { border: 1px solid var(--line); border-radius: 18px; background: var(--paper); overflow: hidden; }
+    .tool-card summary { display: flex; justify-content: space-between; gap: 15px; padding: 18px 20px; font-weight: 900; cursor: pointer; }
+    .tool-card summary span { color: var(--muted); font-size: .82rem; font-weight: 700; }
+    .tool-body { padding: 0 20px 20px; }
+    .tool-use { margin-bottom: 13px; padding: 11px 13px; border-radius: 12px; color: var(--green-dark); background: var(--green-soft); font-size: .9rem; }
+    .phrase-level { margin: 12px 0 5px; color: var(--muted); font-size: .78rem; font-weight: 900; letter-spacing: .08em; }
+    .example { margin: 12px 0 0; padding-left: 12px; border-left: 3px solid var(--yellow); font-family: Georgia, "Times New Roman", serif; }
+    .warning { margin-top: 12px; color: #8a4a2c; font-size: .86rem; }
+    .topic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .topic-card { border: 1px solid var(--line); border-radius: 20px; background: var(--paper); overflow: hidden; }
+    .topic-card > summary { padding: 22px; cursor: pointer; list-style: none; }
+    .topic-card > summary::-webkit-details-marker { display: none; }
+    .topic-year { display: inline-block; margin-bottom: 8px; padding: 4px 9px; border-radius: 8px; color: var(--green-dark); background: var(--green-soft); font-size: .76rem; font-weight: 900; }
+    .topic-card h3 { margin: 0 0 5px; }
+    .topic-card > summary p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .topic-content { padding: 0 22px 22px; border-top: 1px solid var(--line); }
+    .topic-steps { display: grid; gap: 10px; margin: 18px 0; }
+    .topic-step { padding: 13px 14px; border-radius: 12px; background: var(--white); }
+    .topic-step strong { color: var(--green-dark); }
+    .bilingual { display: grid; gap: 12px; }
+    .bilingual-row { padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+    .bilingual-row p { margin-bottom: 4px; }
+    .bilingual-row .zh { color: var(--muted); font-size: .88rem; }
+    .topic-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .core-badge { color: var(--green-dark); background: var(--green-soft); }
+    .challenge-badge { color: #79411f; background: var(--orange-soft); }
 
     @media (max-width: 900px) {
-      .hero, .reference-grid { grid-template-columns: 1fr; }
+      .hero, .reference-grid, .learning-head { grid-template-columns: 1fr; }
       .hero { padding-top: 45px; }
       .method-card { max-width: 520px; transform: none; }
       .app { grid-template-columns: 1fr; }
@@ -290,6 +369,7 @@
       .progress-track { margin-bottom: 16px; }
       .draft-wrap { grid-template-columns: 1fr; }
       .metrics { grid-template-columns: repeat(3, 1fr); }
+      .level-note { justify-self: start; }
     }
     @media (max-width: 640px) {
       .shell { width: min(100% - 20px, 1180px); }
@@ -298,7 +378,7 @@
       .hero { gap: 30px; padding: 34px 4px 60px; }
       h1 { font-size: 2.8rem; }
       .content { padding: 26px 18px; }
-      .form-grid, .phrase-groups, .check-grid { grid-template-columns: 1fr; }
+      .form-grid, .phrase-groups, .check-grid, .task-grid, .burger-grid, .idea-grid, .tool-grid, .topic-grid { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
       .sentence-card { grid-template-columns: 1fr; }
       .split-title { align-items: flex-start; flex-direction: column; }
@@ -306,12 +386,21 @@
       .step-actions { flex-direction: column-reverse; }
       .step-actions .btn { width: 100%; }
       .upgrade-table { display: block; overflow-x: auto; }
+      .top-links { display: none; }
+      .lesson-tabs { grid-template-columns: repeat(4, minmax(130px, 1fr)); overflow-x: auto; padding: 0 12px; }
+      .ladder-row { grid-template-columns: 1fr; gap: 4px; }
+      .resource-head { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
 <body>
   <header class="shell topbar">
     <div class="brand"><span class="brand-mark">W</span><span>StepWrite</span></div>
+    <nav class="top-links" aria-label="主要內容">
+      <a href="#learn">先學架構</a>
+      <a href="#workshop">跟著寫</a>
+      <a href="#topics">歷屆練習</a>
+    </nav>
     <div class="save-status" id="saveStatus" aria-live="polite">進度會自動保存在這台裝置</div>
   </header>
 
@@ -322,8 +411,8 @@
         <h1>不是背範文，<br>是把想法<em>寫出來。</em></h1>
         <p class="hero-copy">一次只完成一個小任務：先拆題、找素材，再把關鍵字變成句子。走完 6 步，你就會有一篇屬於自己的兩段式英文作文。</p>
         <div class="hero-actions">
-          <button class="btn btn-primary" data-start>開始我的作文 →</button>
-          <button class="btn btn-secondary" id="loadDemoTop">載入示範素材</button>
+          <a class="btn btn-primary" href="#learn">先看一篇怎麼長出來 →</a>
+          <button class="btn btn-secondary" data-start>我已經會了，直接開始寫</button>
         </div>
       </div>
       <aside class="method-card" aria-label="寫作流程摘要">
@@ -336,10 +425,124 @@
       </aside>
     </section>
 
+    <section class="shell learning" id="learn">
+      <div class="learning-shell">
+        <div class="learning-head">
+          <div>
+            <span class="step-kicker">LEARN FIRST · 111 年公園題</span>
+            <h2>先看骨架，再看句子</h2>
+            <p>這裡不會一開始就給整篇答案。我們把同一篇作文拆成 4 層，你只要一次理解一件事。</p>
+          </div>
+          <span class="level-note">基礎版優先 · 進階版選看</span>
+        </div>
+
+        <div class="lesson-tabs" role="tablist" aria-label="公園題拆解層次">
+          <button class="lesson-tab active" role="tab" aria-selected="true" data-lesson="0">1. 先懂任務</button>
+          <button class="lesson-tab" role="tab" aria-selected="false" data-lesson="1">2. 放入材料</button>
+          <button class="lesson-tab" role="tab" aria-selected="false" data-lesson="2">3. 組成句子</button>
+          <button class="lesson-tab" role="tab" aria-selected="false" data-lesson="3">4. 完成後對照</button>
+        </div>
+
+        <section class="lesson-panel active" data-lesson-panel="0">
+          <h3>第一步不是寫英文，是看懂兩段要做什麼</h3>
+          <p class="lesson-intro">題目談兩種不同的公園，並請你描述自己理想中的公園。先把它翻成兩個小任務。</p>
+          <div class="task-grid">
+            <div class="task-card"><strong>第一段｜看圖描述</strong>圖片 A 有什麼？圖片 B 有什麼？兩座公園最重要的差異是什麼？</div>
+            <div class="task-card"><strong>第二段｜表達觀點</strong>你比較喜歡哪一種公園？理由一和理由二是什麼？各自會帶來什麼好處？</div>
+          </div>
+          <div class="split-title"><h3>把兩段想成兩個漢堡</h3><span class="hint">餅皮負責開頭與收尾，內餡才放細節。</span></div>
+          <div class="burger-grid">
+            <div class="burger">
+              <h4>第一段：客觀描述</h4>
+              <div class="burger-stack">
+                <div class="burger-layer bun-top">🍞 總述主題<small>兩張圖都在談不同類型的公園</small></div>
+                <div class="burger-layer lettuce">🥬 Picture A<small>設施、人物、動作與氣氛</small></div>
+                <div class="burger-layer filling">🥩 Picture B<small>用對比詞換到另一個畫面</small></div>
+                <div class="burger-layer bun-bottom">🍞 核心差異<small>只選一個最重要的差異</small></div>
+              </div>
+            </div>
+            <div class="burger">
+              <h4>第二段：申論觀點</h4>
+              <div class="burger-stack">
+                <div class="burger-layer bun-top">🍞 我的選擇<small>直接說喜歡哪一種公園</small></div>
+                <div class="burger-layer lettuce">🥬 理由一 + 解釋<small>為什麼？實際會怎樣？</small></div>
+                <div class="burger-layer filling">🥩 理由二 + 解釋<small>再給一個不同角度的支持</small></div>
+                <div class="burger-layer bun-bottom">🍞 回扣選擇<small>用一句話完成文章</small></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson-panel" data-lesson-panel="1">
+          <h3>每一層先放關鍵字，不急著寫完整句</h3>
+          <p class="lesson-intro">英文關鍵字就像準備好的食材。材料夠了，下一步才把它們組成句子。</p>
+          <div class="idea-grid">
+            <div class="idea-card"><span class="role">第一段 · 總述</span><div class="keyword">two different types of parks</div><p>兩張圖都在呈現不同類型的公園。</p></div>
+            <div class="idea-card"><span class="role">第一段 · Picture A</span><div class="keyword">colorful playground · slides · children · lively</div><p>遊具很多、適合兒童，氣氛熱鬧。</p></div>
+            <div class="idea-card"><span class="role">第一段 · Picture B</span><div class="keyword">tall trees · green lawn · quiet · peaceful</div><p>自然、寬敞，氣氛安靜。</p></div>
+            <div class="idea-card"><span class="role">第一段 · 差異</span><div class="keyword">facilities vs. nature</div><p>A 重視設施與活動，B 重視自然與平靜。</p></div>
+            <div class="idea-card"><span class="role">第二段 · 立場</span><div class="keyword">prefer Picture B</div><p>我比較喜歡自然、寬敞的公園。</p></div>
+            <div class="idea-card"><span class="role">第二段 · 理由一</span><div class="keyword">relax · forget stress · birds</div><p>自然環境讓我放鬆，也能暫時忘記壓力。</p></div>
+            <div class="idea-card"><span class="role">第二段 · 理由二</span><div class="keyword">picnics · exercise · family and friends</div><p>開放空間讓人一起活動，也能拉近關係。</p></div>
+            <div class="idea-card"><span class="role">第二段 · 結尾</span><div class="keyword">physical and mental comfort</div><p>安靜綠意的公園能帶來身心舒適。</p></div>
+          </div>
+        </section>
+
+        <section class="lesson-panel" data-lesson-panel="2">
+          <h3>關鍵字加上任務句型，就成為基礎答案</h3>
+          <p class="lesson-intro">先求清楚、正確，再考慮進階。左邊是句子的工作，右邊才是英文。</p>
+          <div class="sentence-ladder">
+            <div class="ladder-row"><strong>總述</strong><p>Both pictures show different kinds of parks, but they have very different features.</p></div>
+            <div class="ladder-row"><strong>描述 A</strong><p>In Picture A, there is a colorful playground with slides and climbing frames.</p></div>
+            <div class="ladder-row"><strong>描述 B</strong><p>In Picture B, the park has many tall trees and a large green lawn.</p></div>
+            <div class="ladder-row"><strong>比較</strong><p>While Picture A is lively, Picture B looks quiet and peaceful.</p></div>
+            <div class="ladder-row"><strong>表明立場</strong><p>In my opinion, my ideal park would be more like the one in Picture B.</p></div>
+            <div class="ladder-row"><strong>理由一</strong><p>First, a natural environment helps me relax and forget stress.</p></div>
+            <div class="ladder-row"><strong>理由二</strong><p>Second, an open park allows families and friends to exercise together.</p></div>
+            <div class="ladder-row"><strong>結尾</strong><p>To sum up, a quiet and green park is my favorite.</p></div>
+          </div>
+          <p class="sentence-note">注意：這些是容易模仿的基礎句，不需要先追求很長或很難的寫法。</p>
+        </section>
+
+        <section class="lesson-panel" data-lesson-panel="3">
+          <h3>自己想過以後，再打開答案對照</h3>
+          <p class="lesson-intro">對照時不要只看單字。請檢查：每一句是否都有工作？每個理由後面是否有具體說明？</p>
+          <details class="answer-reveal">
+            <summary>我已經完成架構，顯示基礎版完整答案</summary>
+            <div class="model-block">
+              <p>Both pictures show different kinds of parks, but they have very different features. In Picture A, there is a colorful playground with slides and climbing frames. Many children might enjoy playing there. In Picture B, the park looks more natural with many tall trees and a large green lawn. It seems quiet and peaceful. While Picture A is lively and full of facilities, Picture B gives people a sense of calmness and nature.</p>
+              <p>In my opinion, my ideal park would be more like the one in Picture B. First, I prefer a natural environment because it helps me relax and forget stress. Walking under the trees and hearing birds sing make me feel peaceful. Second, a park with open space allows families and friends to have picnics or exercise together, which makes people healthier and closer. To sum up, a quiet and green park is my favorite because it brings both physical and mental comfort.</p>
+            </div>
+          </details>
+          <details class="answer-reveal">
+            <summary>基礎版看懂了，再比較進階改寫</summary>
+            <div class="bilingual">
+              <div class="bilingual-row"><p>As the pictures illustrate, both parks have distinct characteristics.</p><p class="zh">功能：用較正式的方式總述兩圖特色。</p></div>
+              <div class="bilingual-row"><p>As shown in Picture A, the park is equipped with colorful playground facilities such as slides and climbing frames, creating a lively and cheerful atmosphere.</p><p class="zh">功能：把物品與氣氛連在同一句，但句型較長。</p></div>
+              <div class="bilingual-row"><p>In contrast, Picture B features a more natural setting, filled with tall trees and a wide green field, giving visitors a sense of calm and freshness.</p><p class="zh">功能：用 In contrast 清楚換到圖 B。</p></div>
+              <div class="bilingual-row"><p>While the first park emphasizes fun and activity, the second one focuses on nature and serenity.</p><p class="zh">功能：一句話總結兩者核心差異。</p></div>
+              <div class="bilingual-row"><p>In my view, my ideal park would be closer to the one in Picture B.</p><p class="zh">功能：表達選擇。</p></div>
+              <div class="bilingual-row"><p>To begin with, I favor a natural environment as it allows me to unwind and escape from daily stress.</p><p class="zh">功能：理由一與效果。</p></div>
+              <div class="bilingual-row"><p>Moreover, an open and spacious park enables families and friends to enjoy picnics or engage in outdoor activities together, which strengthens relationships and promotes health.</p><p class="zh">功能：理由二、例子與好處。</p></div>
+              <div class="bilingual-row"><p>All in all, a tranquil and green park appeals to me most, as it provides both physical relaxation and mental peace.</p><p class="zh">功能：回扣理想公園並收尾。</p></div>
+            </div>
+          </details>
+          <div class="step-actions"><span></span><button class="btn btn-primary" data-start>看懂了，換我寫 →</button></div>
+        </section>
+      </div>
+    </section>
+
     <section class="shell workspace" id="workshop">
       <div class="section-heading">
         <h2>你的寫作工作桌</h2>
         <p>不必一次想完整篇。每一格只放一個想法，我們會在最後幫你把句子組成草稿。</p>
+        <div class="topic-actions" aria-label="選擇練習題">
+          <button class="btn btn-secondary btn-small" data-load-topic="park">111 年公園題</button>
+          <button class="btn btn-secondary btn-small" data-load-topic="robot">113 年機器人題</button>
+          <button class="btn btn-secondary btn-small" data-load-topic="marketing">115 年模擬考</button>
+          <button class="btn btn-secondary btn-small" data-load-topic="disaster">115 年預測題</button>
+        </div>
+        <input type="hidden" id="selectedTopic" class="persist" value="park">
       </div>
 
       <div class="app">
@@ -389,8 +592,8 @@
             <div class="coach-note"><span>🔎</span><div><strong>觀察順序：</strong>先看「誰／什麼」，再看「正在做什麼」，最後補上「帶來什麼感受或結果」。</div></div>
             <div class="form-grid">
               <div class="material-card a">
-                <h3>Picture A／第一個情境</h3>
-                <span class="hint">至少記下 2 個看得見的細節。</span>
+                <h3 id="materialATitle">Picture A／第一個情境</h3>
+                <span class="hint" id="materialAHint">至少記下 2 個看得見的細節。</span>
                 <div class="material-list">
                   <input id="a1" class="persist required-1" aria-label="圖片 A 細節一" placeholder="who / what：many children">
                   <input id="a2" class="persist required-1" aria-label="圖片 A 細節二" placeholder="action：play on colorful equipment">
@@ -398,8 +601,8 @@
                 </div>
               </div>
               <div class="material-card b">
-                <h3>Picture B／第二個情境</h3>
-                <span class="hint">找出能和 A 形成比較的細節。</span>
+                <h3 id="materialBTitle">Picture B／第二個情境</h3>
+                <span class="hint" id="materialBHint">找出能和 A 形成比較的細節。</span>
                 <div class="material-list">
                   <input id="b1" class="persist required-1" aria-label="圖片 B 細節一" placeholder="who / what：tall trees and a green field">
                   <input id="b2" class="persist required-1" aria-label="圖片 B 細節二" placeholder="action：families enjoy a picnic">
@@ -407,12 +610,12 @@
                 </div>
               </div>
               <div class="field full">
-                <label for="contrast">兩者最重要的差異</label>
+                <label for="contrast" id="contrastLabel">兩者最重要的差異</label>
                 <span class="hint">不要列出全部差異，只選最能代表題目的那一個。</span>
                 <input id="contrast" class="persist required-1" placeholder="A focuses on fun, while B offers peace and nature">
               </div>
             </div>
-            <div class="split-title"><h3>第二段的觀點素材</h3><button class="btn btn-secondary btn-small" id="loadDemo">不知道怎麼填？載入公園題示範</button></div>
+            <div class="split-title"><h3>第二段的觀點素材</h3><button class="btn btn-secondary btn-small" id="loadTopicMaterials">卡住時，帶入這題的關鍵字提示</button></div>
             <div class="form-grid">
               <div class="field full"><label for="stance">我的立場</label><input id="stance" class="persist required-1" placeholder="I prefer a natural and spacious park"></div>
               <div class="field"><label for="reason1">理由一</label><input id="reason1" class="persist required-1" placeholder="it helps me relax after a busy day"></div>
@@ -430,9 +633,9 @@
             <div class="split-title"><h3>Paragraph 1</h3><button class="btn btn-secondary btn-small" data-build="p1">用我的素材產生基本句</button></div>
             <div class="sentence-stack">
               <div class="sentence-card"><span class="sentence-tag">1</span><div><h3>總述主題</h3><span class="sentence-help">先告訴讀者兩張圖共同在談什麼，不要急著寫細節。</span><textarea id="p1s1" class="persist required-2" placeholder="The two pictures show two different types of parks."></textarea></div></div>
-              <div class="sentence-card"><span class="sentence-tag">2</span><div><h3>描述 Picture A</h3><span class="sentence-help">細節後面補上感受或結果，句子會更有意義。</span><textarea id="p1s2" class="persist required-2" placeholder="In Picture A, ..."></textarea></div></div>
-              <div class="sentence-card"><span class="sentence-tag">3</span><div><h3>對比 Picture B</h3><span class="sentence-help">用 By contrast 或 In comparison 清楚換到另一張圖。</span><textarea id="p1s3" class="persist required-2" placeholder="By contrast, Picture B ..."></textarea></div></div>
-              <div class="sentence-card"><span class="sentence-tag">4</span><div><h3>收束主要差異</h3><span class="sentence-help">用一句話替第一段下結論，不要加入個人偏好。</span><textarea id="p1s4" class="persist required-2" placeholder="Overall, the main difference is that ..."></textarea></div></div>
+              <div class="sentence-card"><span class="sentence-tag">2</span><div><h3 id="p1Task2Title">描述 Picture A</h3><span class="sentence-help" id="p1Task2Help">細節後面補上感受或結果，句子會更有意義。</span><textarea id="p1s2" class="persist required-2" placeholder="In Picture A, ..."></textarea></div></div>
+              <div class="sentence-card"><span class="sentence-tag">3</span><div><h3 id="p1Task3Title">對比 Picture B</h3><span class="sentence-help" id="p1Task3Help">用 By contrast 或 In comparison 清楚換到另一張圖。</span><textarea id="p1s3" class="persist required-2" placeholder="By contrast, Picture B ..."></textarea></div></div>
+              <div class="sentence-card"><span class="sentence-tag">4</span><div><h3 id="p1Task4Title">收束主要差異</h3><span class="sentence-help" id="p1Task4Help">用一句話替第一段下結論，不要加入個人偏好。</span><textarea id="p1s4" class="persist required-2" placeholder="Overall, the main difference is that ..."></textarea></div></div>
             </div>
             <div class="step-actions"><button class="btn btn-quiet" data-prev>← 回上一步</button><button class="btn btn-primary" data-next>第一段完成，寫我的觀點 →</button></div>
           </section>
@@ -502,17 +705,171 @@
       </div>
     </section>
 
-    <section class="reference">
-      <div class="shell reference-grid">
-        <div class="section-heading">
-          <span class="step-kicker">HELP WHEN YOU NEED IT</span>
-          <h2>卡住再看，<br>不要先抄答案</h2>
-          <p>這些提示留在主流程之外。先自己試一次，再打開最需要的那一項。</p>
+    <section class="resource-section alt" id="transitions">
+      <div class="shell">
+        <div class="resource-head">
+          <div class="section-heading">
+            <span class="step-kicker">WRITING TOOLBOX</span>
+            <h2>先選對關係，再選連接詞</h2>
+            <p>前 6 類是核心工具，後 4 類寫完基本內容再挑戰。連接詞不是越難越好，能準確連接想法才有用。</p>
+          </div>
+          <div><span class="chip core-badge">核心 6 類</span> <span class="chip challenge-badge">挑戰 4 類</span></div>
         </div>
-        <div>
-          <details><summary>第一段沒有內容時，我可以觀察什麼？</summary><div>依序找人物、地點、動作、物品、表情與整體氣氛。每張圖挑 2–3 個最能支持「主要差異」的細節即可，不需要把看到的全部寫進去。</div></details>
-          <details><summary>理由和解釋有什麼不同？</summary><div><strong>理由</strong>回答「我為什麼這樣想」；<strong>解釋</strong>回答「這個理由會帶來什麼具體影響」。例如：I prefer natural parks because they help me relax. I can walk under the trees and stay away from traffic noise.</div></details>
-          <details><summary>看看公園題的完整示範</summary><div><div class="model-essay"><p>The two pictures show two different types of parks. In Picture A, many children are playing on colorful equipment, making the park lively and exciting. By contrast, Picture B is filled with tall trees and a wide green field, where families can enjoy a quiet picnic. Overall, the first park focuses on active fun, while the second offers peace and nature.</p><p>Personally, I prefer a natural and spacious park. To begin with, it helps me unwind after a busy day. For example, I can walk under the trees and stay away from traffic noise. In addition, such a park gives people room to spend quality time together. Families can have picnics or exercise together on weekends. For these reasons, a green and peaceful park would be my ideal choice.</p></div></div></details>
+
+        <div class="task-grid" style="margin-bottom: 22px;">
+          <div class="task-card"><strong>第一段寫作技巧</strong>先總述圖片主題，再挑圖 A、圖 B 的關鍵細節，最後用一句話說明核心差異。只描述看得到的內容，不急著加入個人偏好。</div>
+          <div class="task-card"><strong>第二段寫作技巧</strong>先提出立場，再寫「理由 + 解釋或例子」兩組，最後回扣立場。不要只列出 First 和 Second，卻沒有說明原因。</div>
+        </div>
+
+        <div class="tool-grid">
+          <details class="tool-card" open>
+            <summary>1. 對比兩件事 <span>核心</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：從圖 A 換到圖 B，或比較兩個不同特色。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">However,</span><span class="chip">In contrast,</span><span class="chip">while</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">By comparison,</span><span class="chip">Conversely,</span><span class="chip">whereas</span></div><p class="example">Picture A is lively, whereas Picture B is peaceful.</p><p class="warning">提醒：On the contrary 用來反駁前一句，不等於一般的「另一方面」。</p></div>
+          </details>
+          <details class="tool-card" open>
+            <summary>2. 安排理由順序 <span>核心</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：讓讀者知道理由一、理由二和最後結果。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">First,</span><span class="chip">Second,</span><span class="chip">Finally,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">To begin with,</span><span class="chip">First and foremost,</span><span class="chip">Ultimately,</span></div><p class="example">To begin with, a natural park helps people relax.</p></div>
+          </details>
+          <details class="tool-card">
+            <summary>3. 補充另一個想法 <span>核心</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：加入同方向的第二個理由或好處。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">Also,</span><span class="chip">Moreover,</span><span class="chip">In addition,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">Furthermore,</span><span class="chip">Apart from this,</span><span class="chip">not to mention</span></div><p class="example">In addition, open spaces allow families to exercise together.</p></div>
+          </details>
+          <details class="tool-card">
+            <summary>4. 舉出具體例子 <span>核心</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：把抽象理由變成讀者看得到的情境。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">For example,</span><span class="chip">For instance,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">To illustrate,</span><span class="chip">A prime example is ...</span><span class="chip">namely</span></div><p class="example">For example, I can walk under the trees after a stressful day.</p></div>
+          </details>
+          <details class="tool-card">
+            <summary>5. 說明原因與結果 <span>核心</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：回答「為什麼」或「因此發生什麼」。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">because</span><span class="chip">so</span><span class="chip">As a result,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">Consequently,</span><span class="chip">Accordingly,</span><span class="chip">Hence,</span></div><p class="example">The park is quiet, so visitors can take a break from city noise.</p><p class="warning">提醒：Because 和 so 通常不要同時放在同一個英文句子裡。</p></div>
+          </details>
+          <details class="tool-card">
+            <summary>6. 完成結尾 <span>核心</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：回扣立場，不要在最後加入全新的理由。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">To sum up,</span><span class="chip">In conclusion,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">All in all,</span><span class="chip">All things considered,</span><span class="chip">Taking everything into account,</span></div><p class="example">All in all, a green and peaceful park would be my ideal choice.</p></div>
+          </details>
+          <details class="tool-card">
+            <summary>7. 表達個人觀點 <span>挑戰</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：在第二段清楚說明自己的選擇或看法。</div><div class="chips"><span class="chip">I think ...</span><span class="chip">In my opinion, ...</span><span class="chip">From my perspective, ...</span><span class="chip">I am convinced that ...</span></div><p class="example">From my perspective, discounts influence more consumers.</p></div>
+          </details>
+          <details class="tool-card">
+            <summary>8. 承認另一面再轉回來 <span>挑戰</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：先承認某件事成立，再說明自己的主要觀點。</div><div class="chips"><span class="chip">Although ...</span><span class="chip">Still,</span><span class="chip">Admittedly,</span><span class="chip">Indeed,</span></div><p class="example">Although playgrounds are exciting, natural parks are more relaxing.</p><p class="warning">提醒：Although 是讓步，不是條件；後面不能再直接接 but。</p></div>
+          </details>
+          <details class="tool-card">
+            <summary>9. 提出條件或假設 <span>挑戰</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：說明只有在某個條件成立時，結果才會發生。</div><div class="chips"><span class="chip">If ...</span><span class="chip">As long as ...</span><span class="chip">Provided that ...</span><span class="chip">Given that ...</span></div><p class="example">If communities prepare early, they can reduce disaster damage.</p></div>
+          </details>
+          <details class="tool-card">
+            <summary>10. 說明行動目的 <span>挑戰</span></summary>
+            <div class="tool-body"><div class="tool-use">用途：回答「做這件事是為了什麼」。</div><div class="chips"><span class="chip">to ...</span><span class="chip">so that ...</span><span class="chip">In an effort to ...</span><span class="chip">With the aim of ...</span><span class="chip">For the sake of ...</span></div><p class="example">Volunteers travel long distances to deliver food to victims.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="topics">
+      <div class="shell">
+        <div class="resource-head">
+          <div class="section-heading">
+            <span class="step-kicker">PRACTICE LIBRARY</span>
+            <h2>同一個架構，換不同題目練習</h2>
+            <p>先看兩段任務和關鍵字方向，再到工作桌自己寫。完整答案都收在最後一層。</p>
+          </div>
+        </div>
+
+        <div class="topic-grid">
+          <details class="topic-card">
+            <summary><span class="topic-year">111 年學測 · 入門</span><h3>不同公園與理想公園</h3><p>描述兩座公園的特色，並說明自己理想中的公園。</p></summary>
+            <div class="topic-content">
+              <div class="topic-steps">
+                <div class="topic-step"><strong>第一段：</strong>描述圖 A、圖 B，收束兩者主要差異。</div>
+                <div class="topic-step"><strong>第二段：</strong>選一種理想公園，以放鬆與共同活動兩個理由支持。</div>
+                <div class="topic-step"><strong>關鍵字：</strong>playground, facilities, tall trees, green lawn, relax, picnics</div>
+              </div>
+              <p>這一題的完整逐層示範已放在上方「先看骨架」區。</p>
+              <div class="topic-actions"><a class="btn btn-secondary btn-small" href="#learn">回到拆解示範</a><button class="btn btn-primary btn-small" data-use-topic="park">把題目帶入工作桌</button></div>
+            </div>
+          </details>
+
+          <details class="topic-card">
+            <summary><span class="topic-year">113 年學測 · 中階</span><h3>青少年問題與機器人幫手</h3><p>選一個最想解決的問題，設計能協助你的機器人。</p></summary>
+            <div class="topic-content">
+              <div class="topic-steps">
+                <div class="topic-step"><strong>第一段：</strong>選擇情緒起伏，說明它對課業與人際的影響及可能原因。</div>
+                <div class="topic-step"><strong>第二段：</strong>說明機器人如何偵測情緒、安撫自己並提供行動提醒。</div>
+                <div class="topic-step"><strong>關鍵字：</strong>mood swings, pressure, detect, facial expression, comfort, manage stress</div>
+              </div>
+              <div class="topic-actions"><button class="btn btn-primary btn-small" data-use-topic="robot">先自己寫這一題</button></div>
+              <details class="answer-reveal">
+                <summary>我已完成架構，顯示中英對照答案</summary>
+                <div class="bilingual">
+                  <div class="bilingual-row"><p>Among the three problems, I would like to solve mood swings.</p><p class="zh">在這三個問題中，我想解決的是情緒起伏。</p></div>
+                  <div class="bilingual-row"><p>Many teenagers, including me, sometimes feel angry or sad for no clear reason.</p><p class="zh">許多青少年，包括我自己，有時會莫名感到生氣或難過。</p></div>
+                  <div class="bilingual-row"><p>This emotional change makes it hard to focus on schoolwork or get along with others.</p><p class="zh">這種情緒變化讓人難以專心讀書或與他人相處。</p></div>
+                  <div class="bilingual-row"><p>I believe it happens because we face too much pressure from studies and relationships.</p><p class="zh">我認為這是因為我們面臨過多來自課業和人際關係的壓力。</p></div>
+                  <div class="bilingual-row"><p>If I had a robot helper, I would like it to help me control my emotions.</p><p class="zh">如果我有一個機器人幫手，我希望它能幫助我控制情緒。</p></div>
+                  <div class="bilingual-row"><p>First, the robot could detect my mood through my voice and facial expression.</p><p class="zh">首先，機器人可以透過我的聲音和表情偵測情緒。</p></div>
+                  <div class="bilingual-row"><p>When it notices I am upset, it could comfort me with calm words or play my favorite music.</p><p class="zh">當它發現我心情不好時，可以用平靜的話語安撫我，或播放我喜歡的音樂。</p></div>
+                  <div class="bilingual-row"><p>Second, it could remind me to take deep breaths or go outside for a walk.</p><p class="zh">其次，它可以提醒我深呼吸或外出散步。</p></div>
+                  <div class="bilingual-row"><p>With its help, I could learn to manage stress and stay positive even when I face difficulties.</p><p class="zh">有了它的幫助，我能學會管理壓力，並在面對困難時保持正向。</p></div>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="topic-card">
+            <summary><span class="topic-year">115 年模擬考 · 中階</span><h3>飢餓行銷與折扣促銷</h3><p>比較兩種促銷方式，並判斷哪一種更能影響消費。</p></summary>
+            <div class="topic-content">
+              <div class="topic-steps">
+                <div class="topic-step"><strong>第一段：</strong>定義飢餓行銷與折扣促銷，比較兩者影響消費者的方式。</div>
+                <div class="topic-step"><strong>第二段：</strong>選擇折扣促銷，以省錢感受、個人購物經驗和客群範圍支持。</div>
+                <div class="topic-step"><strong>關鍵字：</strong>scarcity, limited products, lower prices, save money, price-sensitive</div>
+              </div>
+              <div class="topic-actions"><button class="btn btn-primary btn-small" data-use-topic="marketing">先自己寫這一題</button></div>
+              <details class="answer-reveal">
+                <summary>我已完成架構，顯示中英對照答案</summary>
+                <div class="bilingual">
+                  <div class="bilingual-row"><p>In modern society, many businesses use various strategies to attract consumers and boost sales.</p><p class="zh">在現代社會，許多企業運用各種策略吸引消費者並提升銷售量。</p></div>
+                  <div class="bilingual-row"><p>Two of the most common methods are hunger marketing and discount promotion.</p><p class="zh">其中常見的兩種方式是飢餓行銷與打折促銷。</p></div>
+                  <div class="bilingual-row"><p>Hunger marketing creates a sense of scarcity by limiting the number of products or setting a short selling period, which makes customers feel the need to buy quickly before the product runs out.</p><p class="zh">飢餓行銷透過限制商品數量或銷售時間製造稀有感，促使消費者趕快購買。</p></div>
+                  <div class="bilingual-row"><p>In contrast, discount promotion lowers prices directly to encourage people to purchase more.</p><p class="zh">相較之下，打折促銷直接降低價格，鼓勵人們購買更多商品。</p></div>
+                  <div class="bilingual-row"><p>Both strategies aim to increase sales, but they work in different psychological ways.</p><p class="zh">兩種策略都想提升銷售量，但運用的心理方式不同。</p></div>
+                  <div class="bilingual-row"><p>In my opinion, discount promotion is more effective in encouraging people to spend money.</p><p class="zh">在我看來，打折促銷更能促使人們消費。</p></div>
+                  <div class="bilingual-row"><p>First, people can clearly see how much they save, and that feeling of getting a good deal often motivates them to buy things they did not plan to.</p><p class="zh">首先，消費者能清楚看到省下多少錢，撿到便宜的感覺常使人買下原本沒計畫購買的東西。</p></div>
+                  <div class="bilingual-row"><p>For example, I once bought a pair of shoes just because it was 50% off, even though I did not really need it.</p><p class="zh">例如，我曾因鞋子打五折而買下一雙，其實我並不真的需要它。</p></div>
+                  <div class="bilingual-row"><p>Second, discounts can attract a wider range of customers, including those who are price-sensitive or not brand-loyal.</p><p class="zh">其次，折扣能吸引更多不同類型的顧客，包括對價格敏感或不忠於特定品牌的人。</p></div>
+                  <div class="bilingual-row"><p>To sum up, discount promotion is a more practical and direct way to make consumers spend more without much hesitation.</p><p class="zh">總而言之，打折促銷是更實際、直接的方式，能讓消費者較少猶豫地購買商品。</p></div>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="topic-card">
+            <summary><span class="topic-year">115 年預測題 · 挑戰</span><h3>災害、互助與志願服務</h3><p>描述災害中的兩種情景，說明互助與志工服務的價值。</p></summary>
+            <div class="topic-content">
+              <div class="topic-steps">
+                <div class="topic-step"><strong>第一段：</strong>描寫受災者的困境，再轉到志工分送物資的溫暖情景。</div>
+                <div class="topic-step"><strong>第二段：</strong>用希望與情感支持、同理心與團結兩個角度說明互助價值。</div>
+                <div class="topic-step"><strong>關鍵字：</strong>flooded streets, victims, volunteers, supplies, emotional support, empathy</div>
+              </div>
+              <div class="topic-actions"><button class="btn btn-primary btn-small" data-use-topic="disaster">先自己寫這一題</button></div>
+              <details class="answer-reveal">
+                <summary>我已完成架構，顯示中英對照答案</summary>
+                <div class="bilingual">
+                  <div class="bilingual-row"><p>When a natural disaster such as an earthquake or flood strikes, it often brings great destruction and loss to people's lives.</p><p class="zh">當地震或水災等天災發生時，往往會對人們的生活造成巨大的破壞與損失。</p></div>
+                  <div class="bilingual-row"><p>In the first picture, the streets are flooded, and residents are struggling in knee-deep dirty water, carrying what little they could save.</p><p class="zh">第一個情景中，街道被洪水淹沒，居民在及膝汙水中艱難前行。</p></div>
+                  <div class="bilingual-row"><p>Their worried faces show fear and exhaustion, reflecting the hopelessness many victims feel during such disasters.</p><p class="zh">他們憂慮的臉龐顯示恐懼與疲憊，也反映受災者的無助。</p></div>
+                  <div class="bilingual-row"><p>In contrast, the second picture presents a warmer scene.</p><p class="zh">相較之下，第二個情景更加溫暖。</p></div>
+                  <div class="bilingual-row"><p>Volunteers are smiling while distributing hot meals and bottled water to those in need at a temporary shelter.</p><p class="zh">志工在臨時避難所面帶微笑，將熱食與瓶裝水分送給有需要的人。</p></div>
+                  <div class="bilingual-row"><p>These two scenes clearly show the dark side of disaster and the bright side of human kindness.</p><p class="zh">兩個情景展現災難的黑暗面與人性的光輝。</p></div>
+                  <div class="bilingual-row"><p>In my opinion, the spirit of mutual help and volunteer work is one of the most valuable things we can see during a disaster.</p><p class="zh">在我看來，互助與志願服務是災難中最珍貴的精神之一。</p></div>
+                  <div class="bilingual-row"><p>First, it gives people hope and emotional support when they feel lost.</p><p class="zh">首先，它能在受災者感到迷惘時給予希望與情感支持。</p></div>
+                  <div class="bilingual-row"><p>When I saw news about the 2024 earthquake in Hualien, I was touched by how volunteers traveled long distances to deliver meals and blankets to victims.</p><p class="zh">看到 2024 年花蓮地震的新聞時，我很感動許多志工遠道而來送上熱食與毛毯。</p></div>
+                  <div class="bilingual-row"><p>Second, volunteering not only helps others but also teaches us the meaning of empathy and unity.</p><p class="zh">其次，志願服務不只幫助他人，也教會我們同理心與團結。</p></div>
+                  <div class="bilingual-row"><p>To sum up, even though disasters bring pain and fear, they also remind us that kindness and cooperation can overcome hardship.</p><p class="zh">總而言之，災難雖帶來痛苦與恐懼，也提醒我們善良與合作能克服困難。</p></div>
+                </div>
+              </details>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -529,18 +886,63 @@
     let activeStep = 0;
     let saveTimer;
 
-    const demo = {
-      prompt: '比較兩張不同類型的公園圖片，並描述你理想中的公園。',
-      p1task: '描述兩座公園的特色，並比較它們的主要差異。',
-      p2task: '選擇我理想中的公園，並用兩個理由與例子支持。',
-      a1: 'many children', a2: 'play on colorful equipment', a3: 'lively and exciting',
-      b1: 'tall trees and a wide green field', b2: 'families enjoy a quiet picnic', b3: 'peaceful and relaxing',
-      contrast: 'the first park focuses on active fun, while the second offers peace and nature',
-      stance: 'a natural and spacious park',
-      reason1: 'it helps me unwind after a busy day',
-      detail1: 'I can walk under the trees and stay away from traffic noise.',
-      reason2: 'it gives people room to spend quality time together',
-      detail2: 'Families can have picnics or exercise together on weekends.'
+    const topicSeeds = {
+      park: {
+        title: '111 年公園題',
+        prompt: '比較兩張不同類型的公園圖片，並描述你理想中的公園。',
+        p1task: '描述兩座公園的特色，並比較它們的主要差異。',
+        p2task: '選擇我理想中的公園，並用兩個理由與例子支持。',
+        a1: 'many children', a2: 'play on colorful equipment', a3: 'lively and exciting',
+        b1: 'tall trees and a wide green field', b2: 'families enjoy a quiet picnic', b3: 'peaceful and relaxing',
+        contrast: 'the first park focuses on active fun, while the second offers peace and nature',
+        stance: 'a natural and spacious park',
+        reason1: 'it helps me unwind after a busy day',
+        detail1: 'I can walk under the trees and stay away from traffic noise.',
+        reason2: 'it gives people room to spend quality time together',
+        detail2: 'Families can have picnics or exercise together on weekends.'
+      },
+      robot: {
+        title: '113 年機器人題',
+        prompt: '從青少年常見問題中選一項最想解決的問題，並說明你希望機器人幫手具備哪些功能。',
+        p1task: '選擇情緒起伏，說明它造成的影響與可能原因。',
+        p2task: '設計能偵測情緒、安撫自己並提供健康提醒的機器人。',
+        a1: 'mood swings', a2: 'Mood swings make it hard to focus on schoolwork.', a3: 'They can also hurt our relationships with others.',
+        b1: 'academic pressure', b2: 'relationship pressure', b3: 'feel angry or sad for no clear reason',
+        contrast: 'teenagers face too much pressure from studies and relationships',
+        stance: 'it to help me manage my emotions',
+        reason1: 'it could detect my mood through my voice and facial expressions',
+        detail1: 'when it notices that I am upset, it could comfort me with calm words or play my favorite music.',
+        reason2: 'it could remind me to calm down in healthy ways',
+        detail2: 'It could ask me to take deep breaths or go outside for a walk.'
+      },
+      marketing: {
+        title: '115 年模擬考',
+        prompt: '比較飢餓行銷與折扣促銷，並說明哪一種方式更能促使消費者花錢。',
+        p1task: '說明兩種促銷手法的運作方式與共同目的。',
+        p2task: '選擇較有效的手法，並用理由與個人經驗支持。',
+        a1: 'hunger marketing', a2: 'creates scarcity by limiting products or selling time', a3: 'makes customers feel that they must buy quickly',
+        b1: 'discount promotion', b2: 'lowers prices directly', b3: 'encourages people to purchase more',
+        contrast: 'they influence consumers in different psychological ways',
+        stance: 'discount promotion is more effective in encouraging people to spend money',
+        reason1: 'people can clearly see how much money they save',
+        detail1: 'I once bought a pair of shoes simply because it was 50% off.',
+        reason2: 'discounts attract a wider range of customers',
+        detail2: 'They appeal to people who are price-sensitive or not loyal to a particular brand.'
+      },
+      disaster: {
+        title: '115 年預測題',
+        prompt: '描述災害中的兩種不同情景，並說明你對互助與志願服務的看法和觀察。',
+        p1task: '對比受災者的困境與志工提供協助的情景。',
+        p2task: '說明互助如何帶來希望、同理心與團結。',
+        a1: 'residents in flooded streets', a2: 'struggle through knee-deep dirty water', a3: 'fearful and exhausted',
+        b1: 'volunteers at a temporary shelter', b2: 'distribute hot meals and bottled water', b3: 'warm and hopeful',
+        contrast: 'one scene shows the pain of disaster, while the other shows human kindness',
+        stance: 'mutual help and volunteer work are extremely valuable during a disaster',
+        reason1: 'they give victims hope and emotional support',
+        detail1: 'volunteers traveled long distances to deliver meals and blankets after the 2024 Hualien earthquake.',
+        reason2: 'volunteering teaches us empathy and unity',
+        detail2: 'By giving our time and effort, we make society more caring and connected.'
+      }
     };
 
     function fieldValue(id, fallback) {
@@ -555,27 +957,51 @@
     }
 
     function buildParagraphOne() {
+      const topic = document.getElementById('selectedTopic').value || 'park';
       const a1 = fieldValue('a1', 'Picture A 的人物或物品');
       const a2 = fieldValue('a2', 'Picture A 的動作');
       const a3 = fieldValue('a3', 'Picture A 的感受');
       const b1 = fieldValue('b1', 'Picture B 的人物或物品');
       const b2 = fieldValue('b2', 'Picture B 的動作');
       const b3 = fieldValue('b3', 'Picture B 的感受');
-      document.getElementById('p1s1').value ||= 'The two pictures show two different scenes related to the same topic.';
-      document.getElementById('p1s2').value = `In Picture A, ${a1} ${a2}, making the scene ${a3}.`;
-      document.getElementById('p1s3').value = `By contrast, Picture B shows ${b1}, where ${b2}. The scene feels ${b3}.`;
-      document.getElementById('p1s4').value = `Overall, the main difference is that ${fieldValue('contrast', '兩者最重要的差異')}.`;
+      if (topic === 'robot') {
+        document.getElementById('p1s1').value = `Among the problems shown, I would most like to solve ${a1}.`;
+        document.getElementById('p1s2').value = sentence(a2);
+        document.getElementById('p1s3').value = `${sentence(a3)} Many teenagers also ${b3}.`;
+        document.getElementById('p1s4').value = `I believe this happens because ${fieldValue('contrast', '問題發生的原因')}.`;
+      } else if (topic === 'marketing') {
+        document.getElementById('p1s1').value = 'Two common marketing strategies are hunger marketing and discount promotion.';
+        document.getElementById('p1s2').value = `Hunger marketing ${a2}, which ${a3}.`;
+        document.getElementById('p1s3').value = `In contrast, discount promotion ${b2}, which ${b3}.`;
+        document.getElementById('p1s4').value = `Both strategies aim to increase sales, but ${fieldValue('contrast', '它們影響消費者的方式不同')}.`;
+      } else {
+        document.getElementById('p1s1').value = topic === 'disaster'
+          ? 'Natural disasters often bring destruction and loss, but they can also reveal human kindness.'
+          : 'The two pictures show two different types of parks.';
+        document.getElementById('p1s2').value = `In the first scene, ${a1} ${a2}, making the scene ${a3}.`;
+        document.getElementById('p1s3').value = `By contrast, the second scene shows ${b1}, who ${b2}. The scene feels ${b3}.`;
+        document.getElementById('p1s4').value = `Overall, ${fieldValue('contrast', '兩者最重要的差異')}.`;
+      }
       afterProgrammaticChange('第一段基本句已帶入，請依照你的意思修改。');
     }
 
     function buildParagraphTwo() {
+      const topic = document.getElementById('selectedTopic').value || 'park';
       const stance = fieldValue('stance', '你的立場');
-      document.getElementById('p2s1').value = `Personally, I prefer ${stance}.`;
+      if (topic === 'robot') document.getElementById('p2s1').value = `If I had a robot helper, I would like ${stance}.`;
+      else if (topic === 'park') document.getElementById('p2s1').value = `Personally, I prefer ${stance}.`;
+      else document.getElementById('p2s1').value = `In my opinion, ${stance}.`;
       document.getElementById('p2s2').value = `To begin with, ${fieldValue('reason1', '理由一')}.`;
       document.getElementById('p2s3').value = sentence(`For example, ${fieldValue('detail1', '具體解釋或例子一')}`);
       document.getElementById('p2s4').value = `In addition, ${fieldValue('reason2', '理由二')}.`;
       document.getElementById('p2s5').value = sentence(fieldValue('detail2', '具體解釋或例子二'));
-      document.getElementById('p2s6').value = `For these reasons, ${stance} would be my ideal choice.`;
+      const closings = {
+        park: `For these reasons, ${stance} would be my ideal choice.`,
+        robot: 'With its help, I could learn to manage stress and stay positive when I face difficulties.',
+        marketing: 'To sum up, discount promotion is a practical and direct way to encourage consumers to spend more.',
+        disaster: 'To sum up, kindness and cooperation can give people strength to overcome hardship.'
+      };
+      document.getElementById('p2s6').value = closings[topic];
       afterProgrammaticChange('第二段基本句已帶入，請把句子改成自己的說法。');
     }
 
@@ -665,9 +1091,70 @@
       toast(message);
     }
 
-    function loadDemo() {
-      Object.entries(demo).forEach(([id, value]) => { document.getElementById(id).value = value; });
-      afterProgrammaticChange('示範素材已載入。接下來請把內容改成你自己的觀察。');
+    const materialIds = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'contrast', 'stance', 'reason1', 'detail1', 'reason2', 'detail2'];
+    const sentenceIds = ['p1s1', 'p1s2', 'p1s3', 'p1s4', 'p2s1', 'p2s2', 'p2s3', 'p2s4', 'p2s5', 'p2s6', 'finalDraft'];
+
+    function applyTopicLabels(topic) {
+      const labels = topic === 'robot' ? {
+        aTitle: '我最想解決的問題', aHint: '先寫問題名稱，再寫它造成的影響。',
+        bTitle: '問題的表現與壓力來源', bHint: '記下青少年可能有的感受與原因。', contrast: '我認為問題發生的主要原因',
+        task2: '說明問題影響', help2: '寫出它如何影響課業或生活。',
+        task3: '補充另一個影響', help3: '可以加入人際影響或常見感受。',
+        task4: '說明可能原因', help4: '用 because 連接你的推論。'
+      } : topic === 'marketing' ? {
+        aTitle: '手法 A：飢餓行銷', aHint: '記下它如何製造稀有感與急迫感。',
+        bTitle: '手法 B：折扣促銷', bHint: '記下降價如何影響消費行為。', contrast: '兩種手法影響消費者的主要差異',
+        task2: '定義飢餓行銷', help2: '說明做法以及它引發的消費心理。',
+        task3: '對比折扣促銷', help3: '說明降價如何鼓勵購買。',
+        task4: '收束共同目的與差異', help4: '兩者都想增加銷售，但使用不同心理方式。'
+      } : topic === 'disaster' ? {
+        aTitle: '情境 A：受災者的困境', aHint: '人物、動作、環境與感受各挑一項。',
+        bTitle: '情境 B：志工互助', bHint: '記下志工做什麼，以及受助者的感受。', contrast: '兩種情景呈現的核心對比',
+        task2: '描述災害困境', help2: '用具體動作與表情呈現困難。',
+        task3: '轉到互助情景', help3: '用 In contrast 帶出較溫暖的畫面。',
+        task4: '收束核心對比', help4: '對比災害的痛苦與人性的善意。'
+      } : {
+        aTitle: 'Picture A／第一座公園', aHint: '至少記下 2 個看得見的細節。',
+        bTitle: 'Picture B／第二座公園', bHint: '找出能和 A 形成比較的細節。', contrast: '兩者最重要的差異',
+        task2: '描述 Picture A', help2: '細節後面補上感受或結果，句子會更有意義。',
+        task3: '對比 Picture B', help3: '用 By contrast 或 In comparison 清楚換到另一張圖。',
+        task4: '收束主要差異', help4: '用一句話替第一段下結論，不要加入個人偏好。'
+      };
+      document.getElementById('materialATitle').textContent = labels.aTitle;
+      document.getElementById('materialAHint').textContent = labels.aHint;
+      document.getElementById('materialBTitle').textContent = labels.bTitle;
+      document.getElementById('materialBHint').textContent = labels.bHint;
+      document.getElementById('contrastLabel').textContent = labels.contrast;
+      document.getElementById('p1Task2Title').textContent = labels.task2;
+      document.getElementById('p1Task2Help').textContent = labels.help2;
+      document.getElementById('p1Task3Title').textContent = labels.task3;
+      document.getElementById('p1Task3Help').textContent = labels.help3;
+      document.getElementById('p1Task4Title').textContent = labels.task4;
+      document.getElementById('p1Task4Help').textContent = labels.help4;
+    }
+
+    function loadTopic(topic, moveToWorkshop = true) {
+      const seed = topicSeeds[topic];
+      if (!seed) return;
+      const currentTopic = document.getElementById('selectedTopic').value;
+      const hasWork = [...materialIds, ...sentenceIds].some(id => document.getElementById(id).value.trim());
+      if (hasWork && !confirm(`${topic === currentTopic ? '重新載入' : '切換'}題目會清除目前的素材與句子草稿，確定要繼續嗎？`)) return;
+      document.getElementById('selectedTopic').value = topic;
+      ['prompt', 'p1task', 'p2task'].forEach(id => { document.getElementById(id).value = seed[id]; });
+      materialIds.forEach(id => { document.getElementById(id).value = ''; });
+      sentenceIds.forEach(id => { document.getElementById(id).value = ''; });
+      applyTopicLabels(topic);
+      afterProgrammaticChange(`${seed.title}已帶入。先看兩段任務，再自己想材料。`);
+      if (moveToWorkshop) showStep(0);
+    }
+
+    function loadTopicMaterials() {
+      const topic = document.getElementById('selectedTopic').value || 'park';
+      const seed = topicSeeds[topic];
+      const hasMaterials = materialIds.some(id => document.getElementById(id).value.trim());
+      if (hasMaterials && !confirm('這會用關鍵字提示取代目前的素材，確定要繼續嗎？')) return;
+      materialIds.forEach(id => { document.getElementById(id).value = seed[id]; });
+      afterProgrammaticChange('只帶入這一題的關鍵字提示；請把它們改成自己的想法。');
       showStep(1);
     }
 
@@ -677,8 +1164,20 @@
     stepLinks.forEach(link => link.addEventListener('click', () => showStep(Number(link.dataset.step))));
     document.querySelector('[data-build="p1"]').addEventListener('click', buildParagraphOne);
     document.querySelector('[data-build="p2"]').addEventListener('click', buildParagraphTwo);
-    document.getElementById('loadDemo').addEventListener('click', loadDemo);
-    document.getElementById('loadDemoTop').addEventListener('click', loadDemo);
+    document.getElementById('loadTopicMaterials').addEventListener('click', loadTopicMaterials);
+    document.querySelectorAll('[data-load-topic], [data-use-topic]').forEach(button => {
+      button.addEventListener('click', () => loadTopic(button.dataset.loadTopic || button.dataset.useTopic));
+    });
+    const lessonTabs = [...document.querySelectorAll('.lesson-tab')];
+    const lessonPanels = [...document.querySelectorAll('.lesson-panel')];
+    lessonTabs.forEach(tab => tab.addEventListener('click', () => {
+      const index = Number(tab.dataset.lesson);
+      lessonTabs.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+        item.setAttribute('aria-selected', i === index ? 'true' : 'false');
+      });
+      lessonPanels.forEach((panel, i) => panel.classList.toggle('active', i === index));
+    }));
     document.getElementById('rebuildDraft').addEventListener('click', () => { assembleDraft(); toast('已用目前的句子重新組合全文。'); });
     document.getElementById('finalDraft').addEventListener('input', updateMetrics);
     persistFields.forEach(field => field.addEventListener('input', () => { saveState(); updateProgress(); }));
@@ -694,6 +1193,8 @@
     document.getElementById('clearAll').addEventListener('click', () => {
       if (!confirm('確定要清空目前所有內容嗎？這個動作無法復原。')) return;
       persistFields.forEach(field => { if (field.type === 'checkbox') field.checked = false; else field.value = ''; });
+      document.getElementById('selectedTopic').value = 'park';
+      applyTopicLabels('park');
       localStorage.removeItem(STORAGE_KEY);
       updateMetrics();
       showStep(0);
@@ -701,6 +1202,7 @@
     });
 
     restoreState();
+    applyTopicLabels(document.getElementById('selectedTopic').value || 'park');
     panels.forEach((panel, index) => panel.classList.toggle('active', index === activeStep));
     stepLinks.forEach((link, index) => link.classList.toggle('active', index === activeStep));
     updateProgress();
