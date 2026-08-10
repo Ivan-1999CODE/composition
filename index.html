@@ -333,13 +333,15 @@
     .model-block.annotated-model { border: 1px solid #d6e1dc; color: var(--ink); background: #fbfdfc; }
     .annotated-model .answer-paragraph { margin-bottom: 18px; line-height: 2.25; }
     .annotated-model .answer-paragraph:last-child { margin-bottom: 0; }
-    .answer-part { padding: .18em .35em .24em; border-radius: .38em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-    .answer-part + .answer-part { margin-left: .16em; }
+    .answer-part { display: block; padding: .42em .55em .5em; border-radius: .5em; }
+    .answer-part + .answer-part { margin-top: 8px; }
     .answer-part.part-top { background: rgba(249, 213, 103, .48); box-shadow: inset 0 -2px 0 rgba(207, 151, 0, .26); }
     .answer-part.part-first { background: rgba(159, 221, 177, .46); box-shadow: inset 0 -2px 0 rgba(39, 139, 85, .24); }
     .answer-part.part-second { background: rgba(243, 164, 127, .42); box-shadow: inset 0 -2px 0 rgba(179, 74, 40, .22); }
     .answer-part.part-bottom { background: rgba(185, 201, 244, .48); box-shadow: inset 0 -2px 0 rgba(72, 90, 174, .2); }
     .answer-label { display: inline-flex; margin-right: .45em; padding: 3px 7px; border-radius: 7px; color: #17352c; background: rgba(255, 255, 255, .72); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: .7rem; font-weight: 900; line-height: 1.2; vertical-align: .12em; white-space: nowrap; }
+    .answer-part .sentence-translation { margin: 2px 0 0; color: #707975; }
+    .sentence-pair p { margin: 0; }
     .sentence-note { margin-top: 6px; color: var(--muted); font-size: .86rem; }
     .outline-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .outline-card { padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
@@ -351,6 +353,7 @@
     .outline-step { padding: 13px 14px; border-radius: 13px; background: #faf8f2; }
     .outline-step strong { display: block; margin-bottom: 3px; color: var(--green-dark); }
     .outline-example { display: block; margin-top: 7px; color: var(--orange); font-family: Georgia, "Times New Roman", serif; font-size: .88rem; }
+    .sentence-translation { display: block; margin-top: 3px; color: #8a928e; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: .76rem; font-style: normal; font-weight: 600; line-height: 1.55; }
     .optional { color: var(--muted); font-size: .78rem; font-weight: 750; }
     .connector-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .connector-card { padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
@@ -366,6 +369,7 @@
     .example-chip:hover, .example-chip:focus-visible { color: var(--white); background: var(--green); outline: none; }
     .example-chip.active { color: var(--white); border-color: var(--green-dark); background: var(--green-dark); box-shadow: 0 3px 0 rgba(22, 74, 59, .18); }
     .connector-example { margin-left: 3px; font-family: Georgia, "Times New Roman", serif; }
+    .connector-rule .sentence-translation { margin-top: 6px; }
     .resource-section { padding: 80px 0; }
     .resource-section.alt { background: rgba(255, 255, 255, .42); border-block: 1px solid rgba(221, 216, 205, .75); }
     .resource-head { display: flex; justify-content: space-between; gap: 22px; align-items: end; margin-bottom: 28px; }
@@ -379,6 +383,7 @@
     .tool-use { margin-bottom: 13px; padding: 11px 13px; border-radius: 12px; color: var(--green-dark); background: var(--green-soft); font-size: .9rem; }
     .phrase-level { margin: 12px 0 5px; color: var(--muted); font-size: .78rem; font-weight: 900; letter-spacing: .08em; }
     .example { margin: 12px 0 0; padding-left: 12px; border-left: 3px solid var(--yellow); font-family: Georgia, "Times New Roman", serif; }
+    .example + .sentence-translation { margin: 3px 0 0; padding-left: 15px; }
     .warning { margin-top: 12px; color: #8a4a2c; font-size: .86rem; }
     .topic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .topic-card { border: 1px solid var(--line); border-radius: 20px; background: var(--paper); overflow: hidden; }
@@ -394,7 +399,9 @@
     .bilingual { display: grid; gap: 12px; }
     .bilingual-row { padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
     .bilingual-row p { margin-bottom: 4px; }
-    .bilingual-row .zh { color: var(--muted); font-size: .88rem; }
+    .bilingual-row .zh { color: #858e89; font-size: .8rem; }
+    .bilingual-row .function-note { color: #9a765f; font-size: .76rem; }
+    .upgrade-table .sentence-translation { margin-top: 4px; }
     .topic-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
     .core-badge { color: var(--green-dark); background: var(--green-soft); }
     .challenge-badge { color: #79411f; background: var(--orange-soft); }
@@ -526,7 +533,7 @@
               <h4>第一段：客觀描述與分析</h4>
               <p class="outline-goal"><strong>目標：</strong>客觀描述圖片、圖表內容，或比較兩者異同。</p>
               <div class="outline-steps">
-                <div class="outline-step"><strong>開頭｜總述主題</strong>直接說明圖片共同呈現的內容。<span class="outline-example">The pictures clearly illustrate two different lifestyles.</span></div>
+                <div class="outline-step"><strong>開頭｜總述主題</strong>直接說明圖片共同呈現的內容。<span class="outline-example">The pictures clearly illustrate two different lifestyles.</span><small class="sentence-translation">這些圖片清楚呈現了兩種不同的生活方式。</small></div>
                 <div class="outline-step"><strong>中間｜A 論點與 B 論點</strong>描述圖 A 與圖 B 的關鍵特徵，並使用對比詞連接兩個畫面。</div>
                 <div class="outline-step"><strong>結尾｜核心差異 <span class="optional">（可選）</span></strong>如果字數足夠，用一句話總結核心差異，替第一段收尾。<span class="outline-example">Obviously, these two images represent a strong contrast between ...</span></div>
               </div>
@@ -535,7 +542,7 @@
               <h4>第二段：申論觀點與闡述</h4>
               <p class="outline-goal"><strong>目標：</strong>提出自己的看法、偏好、原因或建議。</p>
               <div class="outline-steps">
-                <div class="outline-step"><strong>開頭｜主要論點</strong>清楚表達自己的選擇或立場。<span class="outline-example">In my opinion, I would prefer the lifestyle shown in Picture A for several reasons.</span></div>
+                <div class="outline-step"><strong>開頭｜主要論點</strong>清楚表達自己的選擇或立場。<span class="outline-example">In my opinion, I would prefer the lifestyle shown in Picture A for several reasons.</span><small class="sentence-translation">在我看來，基於幾個理由，我會比較喜歡圖 A 所呈現的生活方式。</small></div>
                 <div class="outline-step"><strong>中間｜理由一 + 解釋</strong><em>First, ...</em> 提出理由，再用 <em>For example, ...</em> 解釋或舉例。</div>
                 <div class="outline-step"><strong>中間｜理由二 + 解釋</strong><em>Second, ...</em> 提出另一個理由，再用 <em>Specifically, ...</em> 補充細節。</div>
                 <div class="outline-step"><strong>結尾｜重申論點</strong>用 1–2 句話回扣立場，不要加入新的理由。<span class="outline-example">In conclusion, + [重述的論點]</span></div>
@@ -552,25 +559,25 @@
               <h4>第一段：描述與比較的轉折詞</h4>
               <p>重點是讓讀者清楚知道你正在描述哪一張圖，以及兩張圖有什麼差異。</p>
               <div class="connector-flow">
-                <div class="connector-stage"><strong>總述圖片</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="The pictures show two different types of parks." aria-pressed="false">The pictures show ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="The pictures illustrate two contrasting park designs." aria-pressed="false">The pictures illustrate ...</button></div></div>
-                <div class="connector-stage"><strong>描述圖 A</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="In Picture A, children are playing on colorful playground equipment." aria-pressed="false">In Picture A, ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="As shown in Picture A, the park is filled with slides and climbing frames." aria-pressed="false">As shown in Picture A, ...</button></div></div>
-                <div class="connector-stage"><strong>轉到圖 B</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="However, Picture B offers a much quieter environment." aria-pressed="false">However, ...</button><button type="button" class="chip example-chip active" data-example-group="p1" data-example="Picture A is lively. In contrast, Picture B is quiet and peaceful." aria-pressed="true">In contrast, ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="By comparison, Picture B provides more open space for relaxation." aria-pressed="false">By comparison, ...</button></div></div>
-                <div class="connector-stage"><strong>句中比較</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="Picture A is lively, while Picture B is calm and peaceful." aria-pressed="false">while</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="Picture A focuses on playground facilities, whereas Picture B emphasizes nature." aria-pressed="false">whereas</button></div></div>
-                <div class="connector-stage"><strong>收束差異</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="Overall, the two parks provide visitors with very different experiences." aria-pressed="false">Overall, ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="Obviously, the greatest difference lies in their atmosphere and purpose." aria-pressed="false">Obviously, ...</button></div></div>
+                <div class="connector-stage"><strong>總述圖片</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="The pictures show two different types of parks." data-translation="兩張圖片呈現兩種不同類型的公園。" aria-pressed="false">The pictures show ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="The pictures illustrate two contrasting park designs." data-translation="兩張圖片呈現兩種對比鮮明的公園設計。" aria-pressed="false">The pictures illustrate ...</button></div></div>
+                <div class="connector-stage"><strong>描述圖 A</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="In Picture A, children are playing on colorful playground equipment." data-translation="圖 A 中，孩子們正在色彩繽紛的遊樂設施上玩耍。" aria-pressed="false">In Picture A, ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="As shown in Picture A, the park is filled with slides and climbing frames." data-translation="如圖 A 所示，公園裡有溜滑梯和攀爬架。" aria-pressed="false">As shown in Picture A, ...</button></div></div>
+                <div class="connector-stage"><strong>轉到圖 B</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="However, Picture B offers a much quieter environment." data-translation="然而，圖 B 提供了一個安靜許多的環境。" aria-pressed="false">However, ...</button><button type="button" class="chip example-chip active" data-example-group="p1" data-example="Picture A is lively. In contrast, Picture B is quiet and peaceful." data-translation="圖 A 很熱鬧。相較之下，圖 B 安靜又平和。" aria-pressed="true">In contrast, ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="By comparison, Picture B provides more open space for relaxation." data-translation="相較之下，圖 B 提供更多讓人放鬆的開放空間。" aria-pressed="false">By comparison, ...</button></div></div>
+                <div class="connector-stage"><strong>句中比較</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="Picture A is lively, while Picture B is calm and peaceful." data-translation="圖 A 很熱鬧，而圖 B 安靜又平和。" aria-pressed="false">while</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="Picture A focuses on playground facilities, whereas Picture B emphasizes nature." data-translation="圖 A 著重遊樂設施，而圖 B 強調自然。" aria-pressed="false">whereas</button></div></div>
+                <div class="connector-stage"><strong>收束差異</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p1" data-example="Overall, the two parks provide visitors with very different experiences." data-translation="整體而言，這兩座公園帶給遊客非常不同的體驗。" aria-pressed="false">Overall, ...</button><button type="button" class="chip example-chip" data-example-group="p1" data-example="Obviously, the greatest difference lies in their atmosphere and purpose." data-translation="顯然，兩者最大的差異在於氣氛與用途。" aria-pressed="false">Obviously, ...</button></div></div>
               </div>
-              <div class="connector-rule" aria-live="polite"><strong>示範：</strong><span class="connector-example" id="p1ConnectorExample">Picture A is lively. In contrast, Picture B is quiet and peaceful.</span></div>
+              <div class="connector-rule" aria-live="polite"><strong>示範：</strong><span class="connector-example" id="p1ConnectorExample">Picture A is lively. In contrast, Picture B is quiet and peaceful.</span><small class="sentence-translation" id="p1ConnectorTranslation">圖 A 很熱鬧。相較之下，圖 B 安靜又平和。</small></div>
             </article>
             <article class="connector-card">
               <h4>第二段：申論與解釋的轉折詞</h4>
               <p>重點是讓讀者看得出你的立場、兩組理由、說明或例子，以及最後的結論。</p>
               <div class="connector-flow">
-                <div class="connector-stage"><strong>表達觀點</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="In my opinion, Picture B is closer to my ideal park." aria-pressed="false">In my opinion, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="Personally, I prefer a park with more trees and open space." aria-pressed="false">Personally, ...</button></div></div>
-                <div class="connector-stage"><strong>理由一</strong><div class="chips"><button type="button" class="chip example-chip active" data-example-group="p2" data-example="First, a natural environment helps me relax." aria-pressed="true">First, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="To begin with, walking among trees allows me to forget daily stress." aria-pressed="false">To begin with, ...</button></div></div>
-                <div class="connector-stage"><strong>解釋／舉例</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="For example, I can take a quiet walk after a stressful day." aria-pressed="false">For example, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="Specifically, the shade and fresh air make outdoor activities more comfortable." aria-pressed="false">Specifically, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="This means that visitors can rest both physically and mentally." aria-pressed="false">This means that ...</button></div></div>
-                <div class="connector-stage"><strong>理由二</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="Second, an open park gives families more room to spend time together." aria-pressed="false">Second, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="In addition, people can have picnics or exercise on the grass." aria-pressed="false">In addition, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="Moreover, shared outdoor activities can strengthen relationships." aria-pressed="false">Moreover, ...</button></div></div>
-                <div class="connector-stage"><strong>結尾</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="In conclusion, a peaceful green park would be my ideal choice." aria-pressed="false">In conclusion, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="To sum up, I prefer Picture B because it supports relaxation and social activities." aria-pressed="false">To sum up, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="All in all, a natural and spacious park appeals to me most." aria-pressed="false">All in all, ...</button></div></div>
+                <div class="connector-stage"><strong>表達觀點</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="In my opinion, Picture B is closer to my ideal park." data-translation="在我看來，圖 B 更接近我理想中的公園。" aria-pressed="false">In my opinion, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="Personally, I prefer a park with more trees and open space." data-translation="就我個人而言，我比較喜歡樹木較多、空間開闊的公園。" aria-pressed="false">Personally, ...</button></div></div>
+                <div class="connector-stage"><strong>理由一</strong><div class="chips"><button type="button" class="chip example-chip active" data-example-group="p2" data-example="First, a natural environment helps me relax." data-translation="首先，自然環境能幫助我放鬆。" aria-pressed="true">First, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="To begin with, walking among trees allows me to forget daily stress." data-translation="首先，在樹林間散步能讓我忘卻日常壓力。" aria-pressed="false">To begin with, ...</button></div></div>
+                <div class="connector-stage"><strong>解釋／舉例</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="For example, I can take a quiet walk after a stressful day." data-translation="例如，在充滿壓力的一天後，我可以安靜地散步。" aria-pressed="false">For example, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="Specifically, the shade and fresh air make outdoor activities more comfortable." data-translation="具體而言，樹蔭和新鮮空氣讓戶外活動更加舒適。" aria-pressed="false">Specifically, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="This means that visitors can rest both physically and mentally." data-translation="這表示遊客的身心都能獲得休息。" aria-pressed="false">This means that ...</button></div></div>
+                <div class="connector-stage"><strong>理由二</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="Second, an open park gives families more room to spend time together." data-translation="其次，開放式公園讓家人有更多空間相聚。" aria-pressed="false">Second, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="In addition, people can have picnics or exercise on the grass." data-translation="此外，人們可以在草地上野餐或運動。" aria-pressed="false">In addition, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="Moreover, shared outdoor activities can strengthen relationships." data-translation="再者，共同參與戶外活動能增進彼此關係。" aria-pressed="false">Moreover, ...</button></div></div>
+                <div class="connector-stage"><strong>結尾</strong><div class="chips"><button type="button" class="chip example-chip" data-example-group="p2" data-example="In conclusion, a peaceful green park would be my ideal choice." data-translation="總而言之，安靜又綠意盎然的公園會是我的理想選擇。" aria-pressed="false">In conclusion, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="To sum up, I prefer Picture B because it supports relaxation and social activities." data-translation="總結來說，我偏好圖 B，因為它有助於放鬆和社交活動。" aria-pressed="false">To sum up, ...</button><button type="button" class="chip example-chip" data-example-group="p2" data-example="All in all, a natural and spacious park appeals to me most." data-translation="整體而言，自然且寬敞的公園最吸引我。" aria-pressed="false">All in all, ...</button></div></div>
               </div>
-              <div class="connector-rule" aria-live="polite"><strong>示範：</strong><span class="connector-example" id="p2ConnectorExample">First, a natural environment helps me relax.</span></div>
+              <div class="connector-rule" aria-live="polite"><strong>示範：</strong><span class="connector-example" id="p2ConnectorExample">First, a natural environment helps me relax.</span><small class="sentence-translation" id="p2ConnectorTranslation">首先，自然環境能幫助我放鬆。</small></div>
             </article>
           </div>
           <p class="warning">標點提醒：However、In contrast、First、For example 等放在句首時，後面通常要加逗號；while 和 whereas 通常直接連接兩個子句。</p>
@@ -595,14 +602,14 @@
           <h3>關鍵字加上任務句型，就成為基礎答案</h3>
           <p class="lesson-intro">先求清楚、正確，再考慮進階。左邊是句子的工作，右邊才是英文。</p>
           <div class="sentence-ladder">
-            <div class="ladder-row"><strong>總述</strong><p>Both pictures show different kinds of parks, but they have very different features.</p></div>
-            <div class="ladder-row"><strong>描述 A</strong><p>In Picture A, there is a colorful playground with slides and climbing frames.</p></div>
-            <div class="ladder-row"><strong>描述 B</strong><p>In Picture B, the park has many tall trees and a large green lawn.</p></div>
-            <div class="ladder-row"><strong>比較</strong><p>While Picture A is lively, Picture B looks quiet and peaceful.</p></div>
-            <div class="ladder-row"><strong>表明立場</strong><p>In my opinion, my ideal park would be more like the one in Picture B.</p></div>
-            <div class="ladder-row"><strong>理由一</strong><p>First, a natural environment helps me relax and forget stress.</p></div>
-            <div class="ladder-row"><strong>理由二</strong><p>Second, an open park allows families and friends to exercise together.</p></div>
-            <div class="ladder-row"><strong>結尾</strong><p>To sum up, a quiet and green park is my favorite.</p></div>
+            <div class="ladder-row"><strong>總述</strong><div class="sentence-pair"><p>Both pictures show different kinds of parks, but they have very different features.</p><small class="sentence-translation">兩張圖片呈現不同類型的公園，而且各有非常不同的特色。</small></div></div>
+            <div class="ladder-row"><strong>描述 A</strong><div class="sentence-pair"><p>In Picture A, there is a colorful playground with slides and climbing frames.</p><small class="sentence-translation">圖 A 中有一座色彩繽紛的遊樂場，裡面有溜滑梯和攀爬架。</small></div></div>
+            <div class="ladder-row"><strong>描述 B</strong><div class="sentence-pair"><p>In Picture B, the park has many tall trees and a large green lawn.</p><small class="sentence-translation">圖 B 中的公園有許多高大的樹木和一大片綠色草地。</small></div></div>
+            <div class="ladder-row"><strong>比較</strong><div class="sentence-pair"><p>While Picture A is lively, Picture B looks quiet and peaceful.</p><small class="sentence-translation">圖 A 氣氛熱鬧，而圖 B 看起來安靜又平和。</small></div></div>
+            <div class="ladder-row"><strong>表明立場</strong><div class="sentence-pair"><p>In my opinion, my ideal park would be more like the one in Picture B.</p><small class="sentence-translation">在我看來，我理想中的公園會更接近圖 B 的樣子。</small></div></div>
+            <div class="ladder-row"><strong>理由一</strong><div class="sentence-pair"><p>First, a natural environment helps me relax and forget stress.</p><small class="sentence-translation">首先，自然環境能幫助我放鬆並忘卻壓力。</small></div></div>
+            <div class="ladder-row"><strong>理由二</strong><div class="sentence-pair"><p>Second, an open park allows families and friends to exercise together.</p><small class="sentence-translation">其次，開放式公園讓家人和朋友可以一起運動。</small></div></div>
+            <div class="ladder-row"><strong>結尾</strong><div class="sentence-pair"><p>To sum up, a quiet and green park is my favorite.</p><small class="sentence-translation">總結來說，安靜又綠意盎然的公園是我的最愛。</small></div></div>
           </div>
           <p class="sentence-note">注意：這些是容易模仿的基礎句，不需要先追求很長或很難的寫法。</p>
         </section>
@@ -620,22 +627,22 @@
                 <span class="answer-key-item key-bottom">下層漢堡皮</span>
               </div>
               <div class="model-block annotated-model">
-                <p class="answer-paragraph"><span class="answer-part part-top"><span class="answer-label">🍞 上層漢堡皮｜總述</span>Both pictures show different kinds of parks, but they have very different features.</span> <span class="answer-part part-first"><span class="answer-label">🥬 A 論點｜Picture A</span>In Picture A, there is a colorful playground with slides and climbing frames. Many children might enjoy playing there.</span> <span class="answer-part part-second"><span class="answer-label">🥩 B 論點｜Picture B</span>In Picture B, the park looks more natural with many tall trees and a large green lawn. It seems quiet and peaceful.</span> <span class="answer-part part-bottom"><span class="answer-label">🍞 下層漢堡皮｜核心差異</span>While Picture A is lively and full of facilities, Picture B gives people a sense of calmness and nature.</span></p>
-                <p class="answer-paragraph"><span class="answer-part part-top"><span class="answer-label">🍞 上層漢堡皮｜我的選擇</span>In my opinion, my ideal park would be more like the one in Picture B.</span> <span class="answer-part part-first"><span class="answer-label">🥬 論點一｜理由＋解釋</span>First, I prefer a natural environment because it helps me relax and forget stress. Walking under the trees and hearing birds sing make me feel peaceful.</span> <span class="answer-part part-second"><span class="answer-label">🥩 論點二｜理由＋解釋</span>Second, a park with open space allows families and friends to have picnics or exercise together, which makes people healthier and closer.</span> <span class="answer-part part-bottom"><span class="answer-label">🍞 下層漢堡皮｜回扣選擇</span>To sum up, a quiet and green park is my favorite because it brings both physical and mental comfort.</span></p>
+                <p class="answer-paragraph"><span class="answer-part part-top"><span class="answer-label">🍞 上層漢堡皮｜總述</span>Both pictures show different kinds of parks, but they have very different features.<small class="sentence-translation">兩張圖片呈現不同類型的公園，而且各有非常不同的特色。</small></span><span class="answer-part part-first"><span class="answer-label">🥬 A 論點｜Picture A</span>In Picture A, there is a colorful playground with slides and climbing frames. Many children might enjoy playing there.<small class="sentence-translation">圖 A 中有一座色彩繽紛的遊樂場，裡面有溜滑梯和攀爬架。許多孩子可能會喜歡在那裡玩。</small></span><span class="answer-part part-second"><span class="answer-label">🥩 B 論點｜Picture B</span>In Picture B, the park looks more natural with many tall trees and a large green lawn. It seems quiet and peaceful.<small class="sentence-translation">圖 B 中的公園看起來更自然，有許多高大的樹木和一大片綠色草地。那裡顯得安靜又平和。</small></span><span class="answer-part part-bottom"><span class="answer-label">🍞 下層漢堡皮｜核心差異</span>While Picture A is lively and full of facilities, Picture B gives people a sense of calmness and nature.<small class="sentence-translation">圖 A 熱鬧且設施豐富，而圖 B 帶給人平靜與自然的感受。</small></span></p>
+                <p class="answer-paragraph"><span class="answer-part part-top"><span class="answer-label">🍞 上層漢堡皮｜我的選擇</span>In my opinion, my ideal park would be more like the one in Picture B.<small class="sentence-translation">在我看來，我理想中的公園會更接近圖 B 的樣子。</small></span><span class="answer-part part-first"><span class="answer-label">🥬 論點一｜理由＋解釋</span>First, I prefer a natural environment because it helps me relax and forget stress. Walking under the trees and hearing birds sing make me feel peaceful.<small class="sentence-translation">首先，我偏好自然環境，因為它能幫助我放鬆並忘卻壓力。在樹下散步並聽鳥鳴讓我感到平靜。</small></span><span class="answer-part part-second"><span class="answer-label">🥩 論點二｜理由＋解釋</span>Second, a park with open space allows families and friends to have picnics or exercise together, which makes people healthier and closer.<small class="sentence-translation">其次，擁有開放空間的公園讓家人和朋友能一起野餐或運動，使大家更健康、感情也更親近。</small></span><span class="answer-part part-bottom"><span class="answer-label">🍞 下層漢堡皮｜回扣選擇</span>To sum up, a quiet and green park is my favorite because it brings both physical and mental comfort.<small class="sentence-translation">總結來說，安靜又綠意盎然的公園是我的最愛，因為它能帶來身心上的舒適。</small></span></p>
               </div>
             </div>
           </details>
           <details class="answer-reveal">
             <summary>基礎版看懂了，再比較進階改寫</summary>
             <div class="bilingual">
-              <div class="bilingual-row"><p>As the pictures illustrate, both parks have distinct characteristics.</p><p class="zh">功能：用較正式的方式總述兩圖特色。</p></div>
-              <div class="bilingual-row"><p>As shown in Picture A, the park is equipped with colorful playground facilities such as slides and climbing frames, creating a lively and cheerful atmosphere.</p><p class="zh">功能：把物品與氣氛連在同一句，但句型較長。</p></div>
-              <div class="bilingual-row"><p>In contrast, Picture B features a more natural setting, filled with tall trees and a wide green field, giving visitors a sense of calm and freshness.</p><p class="zh">功能：用 In contrast 清楚換到圖 B。</p></div>
-              <div class="bilingual-row"><p>While the first park emphasizes fun and activity, the second one focuses on nature and serenity.</p><p class="zh">功能：一句話總結兩者核心差異。</p></div>
-              <div class="bilingual-row"><p>In my view, my ideal park would be closer to the one in Picture B.</p><p class="zh">功能：表達選擇。</p></div>
-              <div class="bilingual-row"><p>To begin with, I favor a natural environment as it allows me to unwind and escape from daily stress.</p><p class="zh">功能：理由一與效果。</p></div>
-              <div class="bilingual-row"><p>Moreover, an open and spacious park enables families and friends to enjoy picnics or engage in outdoor activities together, which strengthens relationships and promotes health.</p><p class="zh">功能：理由二、例子與好處。</p></div>
-              <div class="bilingual-row"><p>All in all, a tranquil and green park appeals to me most, as it provides both physical relaxation and mental peace.</p><p class="zh">功能：回扣理想公園並收尾。</p></div>
+              <div class="bilingual-row"><p>As the pictures illustrate, both parks have distinct characteristics.</p><p class="zh">如圖片所示，兩座公園各自具有鮮明的特色。</p><p class="function-note">功能：用較正式的方式總述兩圖特色。</p></div>
+              <div class="bilingual-row"><p>As shown in Picture A, the park is equipped with colorful playground facilities such as slides and climbing frames, creating a lively and cheerful atmosphere.</p><p class="zh">如圖 A 所示，公園設有溜滑梯和攀爬架等色彩繽紛的遊樂設施，營造出熱鬧歡樂的氣氛。</p><p class="function-note">功能：把物品與氣氛連在同一句，但句型較長。</p></div>
+              <div class="bilingual-row"><p>In contrast, Picture B features a more natural setting, filled with tall trees and a wide green field, giving visitors a sense of calm and freshness.</p><p class="zh">相較之下，圖 B 呈現更自然的環境，高大的樹木與寬闊的綠地帶給遊客平靜清新的感受。</p><p class="function-note">功能：用 In contrast 清楚換到圖 B。</p></div>
+              <div class="bilingual-row"><p>While the first park emphasizes fun and activity, the second one focuses on nature and serenity.</p><p class="zh">第一座公園強調樂趣與活動，而第二座公園著重自然與寧靜。</p><p class="function-note">功能：一句話總結兩者核心差異。</p></div>
+              <div class="bilingual-row"><p>In my view, my ideal park would be closer to the one in Picture B.</p><p class="zh">依我看，我理想中的公園會更接近圖 B 的樣子。</p><p class="function-note">功能：表達選擇。</p></div>
+              <div class="bilingual-row"><p>To begin with, I favor a natural environment as it allows me to unwind and escape from daily stress.</p><p class="zh">首先，我偏好自然環境，因為它能讓我放鬆並暫時擺脫日常壓力。</p><p class="function-note">功能：理由一與效果。</p></div>
+              <div class="bilingual-row"><p>Moreover, an open and spacious park enables families and friends to enjoy picnics or engage in outdoor activities together, which strengthens relationships and promotes health.</p><p class="zh">此外，開放寬敞的公園讓家人與朋友能一起野餐或從事戶外活動，既能增進感情，也有益健康。</p><p class="function-note">功能：理由二、例子與好處。</p></div>
+              <div class="bilingual-row"><p>All in all, a tranquil and green park appeals to me most, as it provides both physical relaxation and mental peace.</p><p class="zh">總而言之，寧靜又綠意盎然的公園最吸引我，因為它能讓身體放鬆，也帶來心靈平靜。</p><p class="function-note">功能：回扣理想公園並收尾。</p></div>
             </div>
           </details>
           <div class="step-actions"><span></span><button class="btn btn-primary" data-start>看懂了，換我寫 →</button></div>
@@ -781,9 +788,9 @@
             <table class="upgrade-table">
               <thead><tr><th>如果一直寫……</th><th>可以試著改成……</th><th>注意</th></tr></thead>
               <tbody>
-                <tr><td>There are many trees.</td><td>The park is filled with tall trees.</td><td>用具體名詞和動作畫出畫面。</td></tr>
-                <tr><td>I like it because it is good.</td><td>I prefer it because it helps me unwind.</td><td>把 good 換成實際好處。</td></tr>
-                <tr><td>People can picnic. People can exercise.</td><td>People can not only enjoy picnics but also exercise together.</td><td>只在兩件事同等重要時使用。</td></tr>
+                <tr><td>There are many trees.<small class="sentence-translation">那裡有許多樹木。</small></td><td>The park is filled with tall trees.<small class="sentence-translation">公園裡長滿高大的樹木。</small></td><td>用具體名詞和動作畫出畫面。</td></tr>
+                <tr><td>I like it because it is good.<small class="sentence-translation">我喜歡它，因為它很好。</small></td><td>I prefer it because it helps me unwind.<small class="sentence-translation">我比較喜歡它，因為它能幫助我放鬆。</small></td><td>把 good 換成實際好處。</td></tr>
+                <tr><td>People can picnic. People can exercise.<small class="sentence-translation">人們可以野餐。人們也可以運動。</small></td><td>People can not only enjoy picnics but also exercise together.<small class="sentence-translation">人們不但可以享受野餐，也可以一起運動。</small></td><td>只在兩件事同等重要時使用。</td></tr>
               </tbody>
             </table>
             <div class="split-title"><h3>交稿前，自己做 4 個決定</h3></div>
@@ -835,43 +842,43 @@
         <div class="tool-grid">
           <details class="tool-card" open>
             <summary>1. 對比兩件事 <span>核心</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：從圖 A 換到圖 B，或比較兩個不同特色。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">However,</span><span class="chip">In contrast,</span><span class="chip">while</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">By comparison,</span><span class="chip">Conversely,</span><span class="chip">whereas</span></div><p class="example">Picture A is lively, whereas Picture B is peaceful.</p><p class="warning">提醒：On the contrary 用來反駁前一句，不等於一般的「另一方面」。</p></div>
+            <div class="tool-body"><div class="tool-use">用途：從圖 A 換到圖 B，或比較兩個不同特色。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">However,</span><span class="chip">In contrast,</span><span class="chip">while</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">By comparison,</span><span class="chip">Conversely,</span><span class="chip">whereas</span></div><p class="example">Picture A is lively, whereas Picture B is peaceful.</p><small class="sentence-translation">圖 A 氣氛熱鬧，而圖 B 顯得平靜。</small><p class="warning">提醒：On the contrary 用來反駁前一句，不等於一般的「另一方面」。</p></div>
           </details>
           <details class="tool-card" open>
             <summary>2. 安排理由順序 <span>核心</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：讓讀者知道理由一、理由二和最後結果。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">First,</span><span class="chip">Second,</span><span class="chip">Finally,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">To begin with,</span><span class="chip">First and foremost,</span><span class="chip">Ultimately,</span></div><p class="example">To begin with, a natural park helps people relax.</p></div>
+            <div class="tool-body"><div class="tool-use">用途：讓讀者知道理由一、理由二和最後結果。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">First,</span><span class="chip">Second,</span><span class="chip">Finally,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">To begin with,</span><span class="chip">First and foremost,</span><span class="chip">Ultimately,</span></div><p class="example">To begin with, a natural park helps people relax.</p><small class="sentence-translation">首先，自然公園能幫助人們放鬆。</small></div>
           </details>
           <details class="tool-card">
             <summary>3. 補充另一個想法 <span>核心</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：加入同方向的第二個理由或好處。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">Also,</span><span class="chip">Moreover,</span><span class="chip">In addition,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">Furthermore,</span><span class="chip">Apart from this,</span><span class="chip">not to mention</span></div><p class="example">In addition, open spaces allow families to exercise together.</p></div>
+            <div class="tool-body"><div class="tool-use">用途：加入同方向的第二個理由或好處。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">Also,</span><span class="chip">Moreover,</span><span class="chip">In addition,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">Furthermore,</span><span class="chip">Apart from this,</span><span class="chip">not to mention</span></div><p class="example">In addition, open spaces allow families to exercise together.</p><small class="sentence-translation">此外，開放空間讓家人可以一起運動。</small></div>
           </details>
           <details class="tool-card">
             <summary>4. 舉出具體例子 <span>核心</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：把抽象理由變成讀者看得到的情境。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">For example,</span><span class="chip">For instance,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">To illustrate,</span><span class="chip">A prime example is ...</span><span class="chip">namely</span></div><p class="example">For example, I can walk under the trees after a stressful day.</p></div>
+            <div class="tool-body"><div class="tool-use">用途：把抽象理由變成讀者看得到的情境。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">For example,</span><span class="chip">For instance,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">To illustrate,</span><span class="chip">A prime example is ...</span><span class="chip">namely</span></div><p class="example">For example, I can walk under the trees after a stressful day.</p><small class="sentence-translation">例如，在充滿壓力的一天後，我可以在樹下散步。</small></div>
           </details>
           <details class="tool-card">
             <summary>5. 說明原因與結果 <span>核心</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：回答「為什麼」或「因此發生什麼」。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">because</span><span class="chip">so</span><span class="chip">As a result,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">Consequently,</span><span class="chip">Accordingly,</span><span class="chip">Hence,</span></div><p class="example">The park is quiet, so visitors can take a break from city noise.</p><p class="warning">提醒：Because 和 so 通常不要同時放在同一個英文句子裡。</p></div>
+            <div class="tool-body"><div class="tool-use">用途：回答「為什麼」或「因此發生什麼」。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">because</span><span class="chip">so</span><span class="chip">As a result,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">Consequently,</span><span class="chip">Accordingly,</span><span class="chip">Hence,</span></div><p class="example">The park is quiet, so visitors can take a break from city noise.</p><small class="sentence-translation">公園很安靜，所以遊客能暫時遠離城市噪音。</small><p class="warning">提醒：Because 和 so 通常不要同時放在同一個英文句子裡。</p></div>
           </details>
           <details class="tool-card">
             <summary>6. 完成結尾 <span>核心</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：回扣立場，不要在最後加入全新的理由。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">To sum up,</span><span class="chip">In conclusion,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">All in all,</span><span class="chip">All things considered,</span><span class="chip">Taking everything into account,</span></div><p class="example">All in all, a green and peaceful park would be my ideal choice.</p></div>
+            <div class="tool-body"><div class="tool-use">用途：回扣立場，不要在最後加入全新的理由。</div><div class="phrase-level">先學會</div><div class="chips"><span class="chip">To sum up,</span><span class="chip">In conclusion,</span></div><div class="phrase-level">再挑戰</div><div class="chips"><span class="chip">All in all,</span><span class="chip">All things considered,</span><span class="chip">Taking everything into account,</span></div><p class="example">All in all, a green and peaceful park would be my ideal choice.</p><small class="sentence-translation">整體而言，綠意盎然又寧靜的公園會是我的理想選擇。</small></div>
           </details>
           <details class="tool-card">
             <summary>7. 表達個人觀點 <span>挑戰</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：在第二段清楚說明自己的選擇或看法。</div><div class="chips"><span class="chip">I think ...</span><span class="chip">In my opinion, ...</span><span class="chip">From my perspective, ...</span><span class="chip">I am convinced that ...</span></div><p class="example">From my perspective, discounts influence more consumers.</p></div>
+            <div class="tool-body"><div class="tool-use">用途：在第二段清楚說明自己的選擇或看法。</div><div class="chips"><span class="chip">I think ...</span><span class="chip">In my opinion, ...</span><span class="chip">From my perspective, ...</span><span class="chip">I am convinced that ...</span></div><p class="example">From my perspective, discounts influence more consumers.</p><small class="sentence-translation">依我看，折扣會影響更多消費者。</small></div>
           </details>
           <details class="tool-card">
             <summary>8. 承認另一面再轉回來 <span>挑戰</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：先承認某件事成立，再說明自己的主要觀點。</div><div class="chips"><span class="chip">Although ...</span><span class="chip">Still,</span><span class="chip">Admittedly,</span><span class="chip">Indeed,</span></div><p class="example">Although playgrounds are exciting, natural parks are more relaxing.</p><p class="warning">提醒：Although 是讓步，不是條件；後面不能再直接接 but。</p></div>
+            <div class="tool-body"><div class="tool-use">用途：先承認某件事成立，再說明自己的主要觀點。</div><div class="chips"><span class="chip">Although ...</span><span class="chip">Still,</span><span class="chip">Admittedly,</span><span class="chip">Indeed,</span></div><p class="example">Although playgrounds are exciting, natural parks are more relaxing.</p><small class="sentence-translation">雖然遊樂場令人興奮，但自然公園更能讓人放鬆。</small><p class="warning">提醒：Although 是讓步，不是條件；後面不能再直接接 but。</p></div>
           </details>
           <details class="tool-card">
             <summary>9. 提出條件或假設 <span>挑戰</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：說明只有在某個條件成立時，結果才會發生。</div><div class="chips"><span class="chip">If ...</span><span class="chip">As long as ...</span><span class="chip">Provided that ...</span><span class="chip">Given that ...</span></div><p class="example">If communities prepare early, they can reduce disaster damage.</p></div>
+            <div class="tool-body"><div class="tool-use">用途：說明只有在某個條件成立時，結果才會發生。</div><div class="chips"><span class="chip">If ...</span><span class="chip">As long as ...</span><span class="chip">Provided that ...</span><span class="chip">Given that ...</span></div><p class="example">If communities prepare early, they can reduce disaster damage.</p><small class="sentence-translation">如果社區及早準備，就能減少災害造成的損失。</small></div>
           </details>
           <details class="tool-card">
             <summary>10. 說明行動目的 <span>挑戰</span></summary>
-            <div class="tool-body"><div class="tool-use">用途：回答「做這件事是為了什麼」。</div><div class="chips"><span class="chip">to ...</span><span class="chip">so that ...</span><span class="chip">In an effort to ...</span><span class="chip">With the aim of ...</span><span class="chip">For the sake of ...</span></div><p class="example">Volunteers travel long distances to deliver food to victims.</p></div>
+            <div class="tool-body"><div class="tool-use">用途：回答「做這件事是為了什麼」。</div><div class="chips"><span class="chip">to ...</span><span class="chip">so that ...</span><span class="chip">In an effort to ...</span><span class="chip">With the aim of ...</span><span class="chip">For the sake of ...</span></div><p class="example">Volunteers travel long distances to deliver food to victims.</p><small class="sentence-translation">志工長途跋涉，為受災者運送食物。</small></div>
           </details>
         </div>
       </div>
@@ -1293,7 +1300,8 @@
     exampleChips.forEach(chip => chip.addEventListener('click', () => {
       const group = chip.dataset.exampleGroup;
       const target = document.getElementById(`${group}ConnectorExample`);
-      if (!target) return;
+      const translationTarget = document.getElementById(`${group}ConnectorTranslation`);
+      if (!target || !translationTarget) return;
       document.querySelectorAll(`[data-example-group="${group}"]`).forEach(item => {
         item.classList.remove('active');
         item.setAttribute('aria-pressed', 'false');
@@ -1301,6 +1309,7 @@
       chip.classList.add('active');
       chip.setAttribute('aria-pressed', 'true');
       target.textContent = chip.dataset.example;
+      translationTarget.textContent = chip.dataset.translation;
     }));
     document.getElementById('rebuildDraft').addEventListener('click', () => { assembleDraft(); toast('已用目前的句子重新組合全文。'); });
     document.getElementById('finalDraft').addEventListener('input', updateMetrics);
