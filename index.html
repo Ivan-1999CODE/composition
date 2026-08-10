@@ -341,6 +341,12 @@
     .answer-part.part-bottom { background: rgba(185, 201, 244, .48); box-shadow: inset 0 -2px 0 rgba(72, 90, 174, .2); }
     .answer-label { display: inline-flex; margin-right: .45em; padding: 3px 7px; border-radius: 7px; color: #17352c; background: rgba(255, 255, 255, .72); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: .7rem; font-weight: 900; line-height: 1.2; vertical-align: .12em; white-space: nowrap; }
     .answer-part .sentence-translation { margin: 2px 0 0; color: #707975; }
+    .advanced-model { display: grid; gap: 22px; }
+    .advanced-paragraph { display: grid; gap: 8px; }
+    .advanced-paragraph-title { display: flex; gap: 9px; align-items: center; margin: 0 0 2px; color: var(--green-dark); font-size: 1rem; }
+    .advanced-paragraph-title span { padding: 4px 9px; border-radius: 999px; color: var(--white); background: var(--green-dark); font-size: .72rem; letter-spacing: .04em; }
+    .advanced-english { margin: 0; font-family: Georgia, "Times New Roman", serif; line-height: 1.75; }
+    .answer-part .function-note { display: block; margin-top: 3px; color: #986f58; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: .72rem; font-weight: 650; line-height: 1.5; }
     .sentence-pair p { margin: 0; }
     .sentence-note { margin-top: 6px; color: var(--muted); font-size: .86rem; }
     .outline-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
@@ -633,16 +639,30 @@
             </div>
           </details>
           <details class="answer-reveal">
-            <summary>基礎版看懂了，再比較進階改寫</summary>
-            <div class="bilingual">
-              <div class="bilingual-row"><p>As the pictures illustrate, both parks have distinct characteristics.</p><p class="zh">如圖片所示，兩座公園各自具有鮮明的特色。</p><p class="function-note">功能：用較正式的方式總述兩圖特色。</p></div>
-              <div class="bilingual-row"><p>As shown in Picture A, the park is equipped with colorful playground facilities such as slides and climbing frames, creating a lively and cheerful atmosphere.</p><p class="zh">如圖 A 所示，公園設有溜滑梯和攀爬架等色彩繽紛的遊樂設施，營造出熱鬧歡樂的氣氛。</p><p class="function-note">功能：把物品與氣氛連在同一句，但句型較長。</p></div>
-              <div class="bilingual-row"><p>In contrast, Picture B features a more natural setting, filled with tall trees and a wide green field, giving visitors a sense of calm and freshness.</p><p class="zh">相較之下，圖 B 呈現更自然的環境，高大的樹木與寬闊的綠地帶給遊客平靜清新的感受。</p><p class="function-note">功能：用 In contrast 清楚換到圖 B。</p></div>
-              <div class="bilingual-row"><p>While the first park emphasizes fun and activity, the second one focuses on nature and serenity.</p><p class="zh">第一座公園強調樂趣與活動，而第二座公園著重自然與寧靜。</p><p class="function-note">功能：一句話總結兩者核心差異。</p></div>
-              <div class="bilingual-row"><p>In my view, my ideal park would be closer to the one in Picture B.</p><p class="zh">依我看，我理想中的公園會更接近圖 B 的樣子。</p><p class="function-note">功能：表達選擇。</p></div>
-              <div class="bilingual-row"><p>To begin with, I favor a natural environment as it allows me to unwind and escape from daily stress.</p><p class="zh">首先，我偏好自然環境，因為它能讓我放鬆並暫時擺脫日常壓力。</p><p class="function-note">功能：理由一與效果。</p></div>
-              <div class="bilingual-row"><p>Moreover, an open and spacious park enables families and friends to enjoy picnics or engage in outdoor activities together, which strengthens relationships and promotes health.</p><p class="zh">此外，開放寬敞的公園讓家人與朋友能一起野餐或從事戶外活動，既能增進感情，也有益健康。</p><p class="function-note">功能：理由二、例子與好處。</p></div>
-              <div class="bilingual-row"><p>All in all, a tranquil and green park appeals to me most, as it provides both physical relaxation and mental peace.</p><p class="zh">總而言之，寧靜又綠意盎然的公園最吸引我，因為它能讓身體放鬆，也帶來心靈平靜。</p><p class="function-note">功能：回扣理想公園並收尾。</p></div>
+            <summary>基礎版看懂了，再用漢堡架構比較進階改寫</summary>
+            <div>
+              <div class="answer-key" aria-label="進階改寫的漢堡寫作顏色圖例">
+                <span class="answer-key-item key-top">上層漢堡皮</span>
+                <span class="answer-key-item key-first">A 論點／理由一</span>
+                <span class="answer-key-item key-second">B 論點／理由二</span>
+                <span class="answer-key-item key-bottom">下層漢堡皮</span>
+              </div>
+              <div class="model-block annotated-model advanced-model">
+                <section class="advanced-paragraph" aria-labelledby="advancedP1Title">
+                  <h4 class="advanced-paragraph-title" id="advancedP1Title"><span>第一段</span>客觀描述與分析</h4>
+                  <div class="answer-part part-top"><span class="answer-label">🍞 上層漢堡皮｜進階總述</span><p class="advanced-english">As the pictures illustrate, both parks have distinct characteristics.</p><small class="sentence-translation">如圖片所示，兩座公園各自具有鮮明的特色。</small><small class="function-note">功能：用較正式的方式總述兩圖特色。</small></div>
+                  <div class="answer-part part-first"><span class="answer-label">🥬 A 論點｜Picture A</span><p class="advanced-english">As shown in Picture A, the park is equipped with colorful playground facilities such as slides and climbing frames, creating a lively and cheerful atmosphere.</p><small class="sentence-translation">如圖 A 所示，公園設有溜滑梯和攀爬架等色彩繽紛的遊樂設施，營造出熱鬧歡樂的氣氛。</small><small class="function-note">功能：把物品與氣氛連在同一句，但句型較長。</small></div>
+                  <div class="answer-part part-second"><span class="answer-label">🥩 B 論點｜Picture B</span><p class="advanced-english">In contrast, Picture B features a more natural setting, filled with tall trees and a wide green field, giving visitors a sense of calm and freshness.</p><small class="sentence-translation">相較之下，圖 B 呈現更自然的環境，高大的樹木與寬闊的綠地帶給遊客平靜清新的感受。</small><small class="function-note">功能：用 In contrast 清楚換到圖 B。</small></div>
+                  <div class="answer-part part-bottom"><span class="answer-label">🍞 下層漢堡皮｜核心差異</span><p class="advanced-english">While the first park emphasizes fun and activity, the second one focuses on nature and serenity.</p><small class="sentence-translation">第一座公園強調樂趣與活動，而第二座公園著重自然與寧靜。</small><small class="function-note">功能：一句話總結兩者核心差異。</small></div>
+                </section>
+                <section class="advanced-paragraph" aria-labelledby="advancedP2Title">
+                  <h4 class="advanced-paragraph-title" id="advancedP2Title"><span>第二段</span>申論觀點與闡述</h4>
+                  <div class="answer-part part-top"><span class="answer-label">🍞 上層漢堡皮｜我的選擇</span><p class="advanced-english">In my view, my ideal park would be closer to the one in Picture B.</p><small class="sentence-translation">依我看，我理想中的公園會更接近圖 B 的樣子。</small><small class="function-note">功能：清楚表達自己的選擇。</small></div>
+                  <div class="answer-part part-first"><span class="answer-label">🥬 論點一｜理由＋效果</span><p class="advanced-english">To begin with, I favor a natural environment as it allows me to unwind and escape from daily stress.</p><small class="sentence-translation">首先，我偏好自然環境，因為它能讓我放鬆並暫時擺脫日常壓力。</small><small class="function-note">功能：提出理由一，並接著說明效果。</small></div>
+                  <div class="answer-part part-second"><span class="answer-label">🥩 論點二｜理由＋例子＋好處</span><p class="advanced-english">Moreover, an open and spacious park enables families and friends to enjoy picnics or engage in outdoor activities together, which strengthens relationships and promotes health.</p><small class="sentence-translation">此外，開放寬敞的公園讓家人與朋友能一起野餐或從事戶外活動，既能增進感情，也有益健康。</small><small class="function-note">功能：提出理由二，補上具體活動與帶來的好處。</small></div>
+                  <div class="answer-part part-bottom"><span class="answer-label">🍞 下層漢堡皮｜回扣選擇</span><p class="advanced-english">All in all, a tranquil and green park appeals to me most, as it provides both physical relaxation and mental peace.</p><small class="sentence-translation">總而言之，寧靜又綠意盎然的公園最吸引我，因為它能讓身體放鬆，也帶來心靈平靜。</small><small class="function-note">功能：回扣理想公園，並用身心兩個面向收尾。</small></div>
+                </section>
+              </div>
             </div>
           </details>
           <div class="step-actions"><span></span><button class="btn btn-primary" data-start>看懂了，換我寫 →</button></div>
