@@ -323,6 +323,23 @@
     .model-block { padding: 20px; border-radius: 15px; color: #eff8f3; background: var(--green-dark); }
     .model-block p { font-family: Georgia, "Times New Roman", serif; }
     .model-block p:last-child { margin-bottom: 0; }
+    .answer-key { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .answer-key-item { display: inline-flex; gap: 7px; align-items: center; padding: 6px 10px; border: 1px solid rgba(27, 65, 53, .12); border-radius: 999px; color: var(--ink); background: #fff; font-size: .78rem; font-weight: 850; }
+    .answer-key-item::before { width: 13px; height: 13px; border-radius: 4px; background: var(--key-color); content: ""; box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .1); }
+    .answer-key-item.key-top { --key-color: #f9d567; }
+    .answer-key-item.key-first { --key-color: #9fddb1; }
+    .answer-key-item.key-second { --key-color: #f3a47f; }
+    .answer-key-item.key-bottom { --key-color: #b9c9f4; }
+    .model-block.annotated-model { border: 1px solid #d6e1dc; color: var(--ink); background: #fbfdfc; }
+    .annotated-model .answer-paragraph { margin-bottom: 18px; line-height: 2.25; }
+    .annotated-model .answer-paragraph:last-child { margin-bottom: 0; }
+    .answer-part { padding: .18em .35em .24em; border-radius: .38em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .answer-part + .answer-part { margin-left: .16em; }
+    .answer-part.part-top { background: rgba(249, 213, 103, .48); box-shadow: inset 0 -2px 0 rgba(207, 151, 0, .26); }
+    .answer-part.part-first { background: rgba(159, 221, 177, .46); box-shadow: inset 0 -2px 0 rgba(39, 139, 85, .24); }
+    .answer-part.part-second { background: rgba(243, 164, 127, .42); box-shadow: inset 0 -2px 0 rgba(179, 74, 40, .22); }
+    .answer-part.part-bottom { background: rgba(185, 201, 244, .48); box-shadow: inset 0 -2px 0 rgba(72, 90, 174, .2); }
+    .answer-label { display: inline-flex; margin-right: .45em; padding: 3px 7px; border-radius: 7px; color: #17352c; background: rgba(255, 255, 255, .72); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: .7rem; font-weight: 900; line-height: 1.2; vertical-align: .12em; white-space: nowrap; }
     .sentence-note { margin-top: 6px; color: var(--muted); font-size: .86rem; }
     .outline-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .outline-card { padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
@@ -592,12 +609,20 @@
 
         <section class="lesson-panel" data-lesson-panel="5">
           <h3>自己想過以後，再打開答案對照</h3>
-          <p class="lesson-intro">對照時不要只看單字。請檢查：每一句是否都有工作？每個理由後面是否有具體說明？</p>
+          <p class="lesson-intro">對照時先看螢光標籤，再讀同色句子。請檢查：每一句是否都有工作？每個理由後面是否有具體說明？</p>
           <details class="answer-reveal">
             <summary>我已經完成架構，顯示基礎版完整答案</summary>
-            <div class="model-block">
-              <p>Both pictures show different kinds of parks, but they have very different features. In Picture A, there is a colorful playground with slides and climbing frames. Many children might enjoy playing there. In Picture B, the park looks more natural with many tall trees and a large green lawn. It seems quiet and peaceful. While Picture A is lively and full of facilities, Picture B gives people a sense of calmness and nature.</p>
-              <p>In my opinion, my ideal park would be more like the one in Picture B. First, I prefer a natural environment because it helps me relax and forget stress. Walking under the trees and hearing birds sing make me feel peaceful. Second, a park with open space allows families and friends to have picnics or exercise together, which makes people healthier and closer. To sum up, a quiet and green park is my favorite because it brings both physical and mental comfort.</p>
+            <div>
+              <div class="answer-key" aria-label="漢堡寫作顏色圖例">
+                <span class="answer-key-item key-top">上層漢堡皮</span>
+                <span class="answer-key-item key-first">A 論點／理由一</span>
+                <span class="answer-key-item key-second">B 論點／理由二</span>
+                <span class="answer-key-item key-bottom">下層漢堡皮</span>
+              </div>
+              <div class="model-block annotated-model">
+                <p class="answer-paragraph"><span class="answer-part part-top"><span class="answer-label">🍞 上層漢堡皮｜總述</span>Both pictures show different kinds of parks, but they have very different features.</span> <span class="answer-part part-first"><span class="answer-label">🥬 A 論點｜Picture A</span>In Picture A, there is a colorful playground with slides and climbing frames. Many children might enjoy playing there.</span> <span class="answer-part part-second"><span class="answer-label">🥩 B 論點｜Picture B</span>In Picture B, the park looks more natural with many tall trees and a large green lawn. It seems quiet and peaceful.</span> <span class="answer-part part-bottom"><span class="answer-label">🍞 下層漢堡皮｜核心差異</span>While Picture A is lively and full of facilities, Picture B gives people a sense of calmness and nature.</span></p>
+                <p class="answer-paragraph"><span class="answer-part part-top"><span class="answer-label">🍞 上層漢堡皮｜我的選擇</span>In my opinion, my ideal park would be more like the one in Picture B.</span> <span class="answer-part part-first"><span class="answer-label">🥬 論點一｜理由＋解釋</span>First, I prefer a natural environment because it helps me relax and forget stress. Walking under the trees and hearing birds sing make me feel peaceful.</span> <span class="answer-part part-second"><span class="answer-label">🥩 論點二｜理由＋解釋</span>Second, a park with open space allows families and friends to have picnics or exercise together, which makes people healthier and closer.</span> <span class="answer-part part-bottom"><span class="answer-label">🍞 下層漢堡皮｜回扣選擇</span>To sum up, a quiet and green park is my favorite because it brings both physical and mental comfort.</span></p>
+              </div>
             </div>
           </details>
           <details class="answer-reveal">
