@@ -310,8 +310,12 @@
     .bun-bottom { border-radius: 13px 13px 38px 38px; color: #573814; background: var(--yellow); }
     .idea-card { padding: 18px; border: 1px solid var(--line); border-radius: 17px; background: var(--white); }
     .idea-card .role { display: inline-block; margin-bottom: 8px; padding: 4px 8px; border-radius: 8px; color: var(--green-dark); background: var(--green-soft); font-size: .76rem; font-weight: 900; }
-    .idea-card .keyword { margin-bottom: 7px; color: var(--orange); font-weight: 850; }
-    .idea-card p:last-child { margin-bottom: 0; }
+    .keyword-pair { display: grid; gap: 8px; }
+    .keyword-row { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 8px; align-items: start; }
+    .keyword-row + .keyword-row { padding-top: 8px; border-top: 1px dashed var(--line); }
+    .language-tag { padding: 3px 5px; border-radius: 6px; color: #68716d; background: #eef1ef; font-size: .66rem; font-weight: 900; text-align: center; }
+    .keyword-row .keyword { margin: 0; color: var(--orange); font-weight: 850; line-height: 1.55; }
+    .keyword-row.zh { color: #727c77; font-size: .84rem; line-height: 1.55; }
     .sentence-ladder { display: grid; gap: 12px; }
     .ladder-row { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 15px; align-items: start; padding: 16px; border: 1px solid var(--line); border-radius: 15px; background: var(--white); }
     .ladder-row strong { color: var(--green-dark); }
@@ -591,16 +595,16 @@
 
         <section class="lesson-panel" data-lesson-panel="3">
           <h3>每一層先放關鍵字，不急著寫完整句</h3>
-          <p class="lesson-intro">英文關鍵字就像準備好的食材。材料夠了，下一步才把它們組成句子。</p>
+          <p class="lesson-intro">英文關鍵字就像準備好的食材。每張卡片上方是英文材料，下方是依原順序排列的中文直譯；材料夠了，下一步才把它們組成句子。</p>
           <div class="idea-grid">
-            <div class="idea-card"><span class="role">第一段 · 總述</span><div class="keyword">two different types of parks</div><p>兩張圖都在呈現不同類型的公園。</p></div>
-            <div class="idea-card"><span class="role">第一段 · Picture A</span><div class="keyword">colorful playground · slides · children · lively</div><p>遊具很多、適合兒童，氣氛熱鬧。</p></div>
-            <div class="idea-card"><span class="role">第一段 · Picture B</span><div class="keyword">tall trees · green lawn · quiet · peaceful</div><p>自然、寬敞，氣氛安靜。</p></div>
-            <div class="idea-card"><span class="role">第一段 · 差異</span><div class="keyword">facilities vs. nature</div><p>A 重視設施與活動，B 重視自然與平靜。</p></div>
-            <div class="idea-card"><span class="role">第二段 · 立場</span><div class="keyword">prefer Picture B</div><p>我比較喜歡自然、寬敞的公園。</p></div>
-            <div class="idea-card"><span class="role">第二段 · 理由一</span><div class="keyword">relax · forget stress · birds</div><p>自然環境讓我放鬆，也能暫時忘記壓力。</p></div>
-            <div class="idea-card"><span class="role">第二段 · 理由二</span><div class="keyword">picnics · exercise · family and friends</div><p>開放空間讓人一起活動，也能拉近關係。</p></div>
-            <div class="idea-card"><span class="role">第二段 · 結尾</span><div class="keyword">physical and mental comfort</div><p>安靜綠意的公園能帶來身心舒適。</p></div>
+            <div class="idea-card"><span class="role">第一段 · 總述</span><div class="keyword-pair"><div class="keyword-row"><span class="language-tag">英文</span><div class="keyword">two different types of parks</div></div><div class="keyword-row zh"><span class="language-tag">中文</span><div>兩種不同類型的公園</div></div></div></div>
+            <div class="idea-card"><span class="role">第一段 · Picture A</span><div class="keyword-pair"><div class="keyword-row"><span class="language-tag">英文</span><div class="keyword">colorful playground · slides · children · lively</div></div><div class="keyword-row zh"><span class="language-tag">中文</span><div>色彩繽紛的遊樂場 · 溜滑梯 · 孩子們 · 熱鬧的</div></div></div></div>
+            <div class="idea-card"><span class="role">第一段 · Picture B</span><div class="keyword-pair"><div class="keyword-row"><span class="language-tag">英文</span><div class="keyword">tall trees · green lawn · quiet · peaceful</div></div><div class="keyword-row zh"><span class="language-tag">中文</span><div>高大的樹木 · 綠色草地 · 安靜的 · 平和的</div></div></div></div>
+            <div class="idea-card"><span class="role">第一段 · 差異</span><div class="keyword-pair"><div class="keyword-row"><span class="language-tag">英文</span><div class="keyword">facilities vs. nature</div></div><div class="keyword-row zh"><span class="language-tag">中文</span><div>設施與自然的對比</div></div></div></div>
+            <div class="idea-card"><span class="role">第二段 · 立場</span><div class="keyword-pair"><div class="keyword-row"><span class="language-tag">英文</span><div class="keyword">prefer Picture B</div></div><div class="keyword-row zh"><span class="language-tag">中文</span><div>偏好圖 B</div></div></div></div>
+            <div class="idea-card"><span class="role">第二段 · 理由一</span><div class="keyword-pair"><div class="keyword-row"><span class="language-tag">英文</span><div class="keyword">relax · forget stress · birds</div></div><div class="keyword-row zh"><span class="language-tag">中文</span><div>放鬆 · 忘卻壓力 · 鳥兒</div></div></div></div>
+            <div class="idea-card"><span class="role">第二段 · 理由二</span><div class="keyword-pair"><div class="keyword-row"><span class="language-tag">英文</span><div class="keyword">picnics · exercise · family and friends</div></div><div class="keyword-row zh"><span class="language-tag">中文</span><div>野餐 · 運動 · 家人和朋友</div></div></div></div>
+            <div class="idea-card"><span class="role">第二段 · 結尾</span><div class="keyword-pair"><div class="keyword-row"><span class="language-tag">英文</span><div class="keyword">physical and mental comfort</div></div><div class="keyword-row zh"><span class="language-tag">中文</span><div>身心舒適</div></div></div></div>
           </div>
         </section>
 
